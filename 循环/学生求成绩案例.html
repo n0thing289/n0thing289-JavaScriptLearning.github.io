@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var classNum = prompt('请输入这个班有多少个学生');
+        var studentScores = 0;
+        var averageScores = 0;
+        for(var i=1;i<=classNum;i++){
+            studentScores += prompt('请输入第'+ i +'学生的成绩:') - 0;//运算符会有隐式转换,但是+ += 是字符相连 数值相加
+            console.log(studentScores);
+        }
+        averageScores = studentScores / classNum;
+        alert('这个班的平均分为' + averageScores);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
