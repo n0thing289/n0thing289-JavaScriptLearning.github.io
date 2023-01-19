@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	var arr = [2,0,6,1,77,0,52,0,25,7];
+	var arrNew = [];
+	//1. 
+	// var j =0;
+	// for(var i=0;i<arr.length;i++){
+	// 	if(arr[i] >= 10){
+	// 		// arrNew.length++;
+	// 		arrNew[j++] = arr[i];//利用数组扩容之二
+	// 	}
+	// }
+	// console.log(arrNew);
+	for(var i=0;i<arr.length;i++){
+		if(arr[i] >= 10){
+			// arrNew.length++;
+			arrNew[arrNew.length] = arr[i];//利用数组扩容之一
+		}
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

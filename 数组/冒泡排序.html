@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	//何为算法？
+	//1.找规律
+	//2. 将规律转为代码
+	var arr = [5,4,3,2,1];
+	for(var i=0;i<arr.length;i++){
+		for(var j=0;j<arr.length-1;j++){
+			if(j+1<=arr.length-1 && arr[j] > arr[j+1]){
+				var temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+	console.log(arr);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
