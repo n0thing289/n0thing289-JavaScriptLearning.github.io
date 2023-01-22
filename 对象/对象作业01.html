@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            // 1.
+            function Computer(color, weight, brand, model) {
+                this.color = color;
+                this.weight = weight;
+                this.brand = brand;
+                this.model = model;
+
+                this.watchFilm = function (film) {
+                    console.log(film);
+                };
+                this.lisenMusic = function (music) {
+                    console.log(music);
+                };
+                this.coding = function () {
+                    console.log("coding~");
+                };
+            }
+            var honor = new Computer("white", 1.7, "HONOR", "2022");
+            for (var k in honor) {
+                console.log(honor[k]);
+            }
+        </script>
+    </head>
+    <body></body>
+</html>
