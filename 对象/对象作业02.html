@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            //用new Object() 创建对象
+            var button = new Object();
+            button["blue"] = "666";
+            button.weight = 100;
+            button.height = 100;
+            button.backgroundColor = "red";
+            button.click = function () {
+                console.log("click");
+            };
+            button["click2"] = function () {
+                console.log("click2");
+            };
+
+            // for (var k in button) {
+            //     console.log(button[k]);
+            // }
+            button.click2();
+            console.log(button["click2"]);
+        </script>
+    </head>
+    <body></body>
+</html>

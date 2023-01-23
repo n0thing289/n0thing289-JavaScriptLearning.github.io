@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            // 5 4 3 2 1
+            //
+            // 4 3 2 1 5  4
+            // 3 2 1 4 5  3
+            // 2 1 3 4 5  2
+            // 1 2 3 4 5  1
+            function sortArray(arr) {
+                var Max = arr[0];
+                for (var i = 0; i < arr.length - 1; i++) {
+                    for (var j = 0; j < arr.length - 1 - i; j++) {
+                        if (arr[j] > arr[j + 1]) {
+                            temp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = temp;
+                        }
+                    }
+                }
+            }
+            var arr = [5, 4, 3, 2, 1];
+            sortArray(arr);
+            console.log(arr);
+        </script>
+    </head>
+    <body></body>
+</html>

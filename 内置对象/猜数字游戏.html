@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            var flag = true;
+            while (flag) {
+                var randomNum = getRandomInt(1, 10);
+
+                var usurNum = prompt("请猜1-10的一个数字:");
+                while (true) {
+                    if (randomNum == usurNum) {
+                        alert("恭喜你猜对了!");
+                        break;
+                    } else {
+                        if (usurNum > randomNum) {
+                            alert("大了");
+                        }
+                        if (usurNum < randomNum) {
+                            alert("小了");
+                        }
+                        usurNum = prompt("请继续猜1-10的一个数字:");
+                    }
+                }
+                flag = prompt(
+                    "play again? enter to play again and 'no' to exit"
+                );
+                if (flag != "no") {
+                    flag = true;
+                } else {
+                    alert("已退出游戏,欢迎下一次再玩");
+                    flag = false;
+                }
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            // 用字面量创建
+            var Car = {
+                weight: 1000,
+                color: "red",
+                drop: function () {
+                    console.log("载人ing");
+                },
+                gengTian: function () {
+                    console.log("耕田ing");
+                },
+            };
+
+            console.log(Car.weight);
+            console.log(Car["color"]);
+
+            Car.drop();
+        </script>
+    </head>
+    <body></body>
+</html>
