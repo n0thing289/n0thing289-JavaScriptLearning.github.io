@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            var str = "abcoefoxyozzopp";
+            var obj = new Object();
+
+            for (var i = 0; i < str.length; i++) {
+                if (obj[str.charAt(i)]) {
+                    obj[str.charAt(i)]++;
+                } else {
+                    obj[str.charAt(i)] = 1;
+                }
+            }
+            //
+            // var Max = obj[str.charAt(0)];
+            // var strMax = "";
+            // for (var i = 0; i < str.length; i++) {
+            //     Max = obj[str.charAt(i)] > Max ? obj[str.charAt(i)] : Max;
+            // }
+            var Max = obj[str.charAt(0)];
+            var strMax = "";
+            for (var key in obj) {
+                if (obj[key] > Max) {
+                    Max = obj[key];
+                    strMax = key;
+                } else {
+                    continue;
+                }
+            }
+            console.log(Max);
+            console.log(strMax);
+        </script>
+    </head>
+    <body></body>
+</html>
