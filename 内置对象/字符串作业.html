@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            var str = "abaasdffggghhjjkkgfddsssss3444343";
+            //1.
+            console.log(str.length);
+            //2.
+            var wantIndex = 0;
+            console.log(str.charAt(wantIndex));
+            //3.
+            if (str.indexOf("i") != -1) {
+                console.log("存在 i");
+            } else if (str.indexOf("c") != -1) {
+                console.log("存在 c");
+            } else if (str.indexOf("b") != -1) {
+                console.log("存在 b");
+            }
+
+            //4.
+            var newStr = "abaasdffggghhjjkkgfddsssss3444343";
+            while (newStr.indexOf("g") != -1) {
+                newStr = newStr.replace("g", "22");
+                newStr = newStr.replace("ss", "b");
+            }
+            console.log(newStr);
+
+            //5.
+            var arr5 = [];
+            for (var i = 0; i < 5; i++) {
+                arr5[arr5.length] = str.charAt(i);
+            }
+            console.log(arr5);
+
+            //6.
+            var obj = new Object();
+            for (var i = 0; i < str.length; i++) {
+                if (obj[str.charAt(i)]) {
+                    obj[str.charAt(i)]++;
+                } else {
+                    obj[str.charAt(i)] = 1;
+                }
+            }
+
+            var Max = obj[str.charAt(0)];
+            var keyMax = "";
+            for (var key in obj) {
+                if (obj[key] > Max) {
+                    Max = obj[key];
+                    keyMax = key;
+                }
+            }
+            console.log(obj);
+            console.log(Max);
+            console.log(keyMax);
+        </script>
+    </head>
+    <body></body>
+</html>
