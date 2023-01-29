@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <ul>
+            <li>1</li>
+            <!-- <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li> -->
+        </ul>
+
+        <ol>
+            <li>ol1</li>
+            <li>ol2</li>
+            <li>ol3</li>
+            <li>ol4</li>
+            <li>ol5</li>
+        </ol>
+        <script>
+            // 1. 返回一个伪数组,内部元素是一个元素对象
+            var lis = document.getElementsByTagName("li");
+            console.log(lis);
+
+            for (var i = 0; i < lis.length; i++) {
+                console.log(lis[i]);
+            }
+            // 2. 如果只有一个li，任然返回一个为数组
+            // 3. 如果一个都没有，仍然返回一个空的伪数组
+            ///////////////////////////
+            // 4.  获取父元素下的子元素(取, 用id标记),父元素自己不会返回
+            var ol = document.getElementsByTagName("ol")[0]; //伪数组只有一个元素
+            console.log(ol);
+        </script>
+    </body>
+</html>

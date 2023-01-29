@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <ul id="nav">
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+        <script>
+            // 1.返回伪数组
+            var divs = document.getElementsByClassName("box");
+            console.log(divs);
+
+            // 2. 返回第一个元素对象(字符串+html的类选择器书写方式)
+            var firstBox = document.querySelector(".box");
+            console.log(firstBox);
+            var nav = document.querySelector("#nav");
+            console.log(nav);
+            var lis = document.querySelector("li");
+            console.log(lis);
+            // 3. 返回所有元素对象的集合(伪数组)
+            var allbox = document.querySelectorAll(".box");
+            console.log(allbox[1]);
+            var allli = document.querySelectorAll("li");
+            console.log(allli);
+        </script>
+    </body>
+</html>
