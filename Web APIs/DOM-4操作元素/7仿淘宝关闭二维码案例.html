@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style type="text/css">
+            div {
+                width: 500px;
+                height: 500px;
+                margin: 100px auto;
+                border: 1px solid red;
+                position: relative;
+            }
+            div button {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+            }
+            div img {
+                position: absolute;
+                top: 0px;
+                left: 36px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <button>X</button>
+            <img src="morning.png" width="200px" />
+        </div>
+        <script>
+            var div = document.querySelector("div");
+            var btn = document.querySelector("button");
+            var img = document.querySelector("img");
+
+            btn.onclick = function () {
+                div.style.display = "none";
+            };
+        </script>
+    </body>
+</html>

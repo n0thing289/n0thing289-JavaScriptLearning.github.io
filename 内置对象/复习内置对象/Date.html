@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            ///////////////////////////////
+            var date = new Date();
+            console.log(date.getFullYear());
+            console.log(date.getMonth());
+            console.log(date.getDate());
+            console.log(date.getDay());
+
+            console.log(date.getHours());
+            console.log(date.getMinutes());
+            console.log(date.getSeconds());
+            ///////////////////////////////
+            function GetTime() {
+                this.date = new Date();
+                this.year = date.getFullYear();
+                this.mouth = date.getMonth();
+                this.date2 = date.getDate();
+                this.day = date.getDay();
+
+                this.hour = date.getHours();
+                this.minutes = date.getMinutes();
+                this.Seconds = date.getSeconds();
+            }
+            var myDate = new Date();
+            var myTime = new GetTime(); //用
+            console.log(myTime);
+
+            for (var k in myTime) {
+                console.log(myTime[k]);
+            }
+        </script>
+    </head>
+    <body></body>
+</html>

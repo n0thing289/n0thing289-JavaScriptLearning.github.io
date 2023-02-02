@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button>小鸡</button>
+        <button>烧杯</button>
+        <img src="小鸡.jpg" title="我是帅小鸡" width="500px" height="500px" />
+        <script>
+            var btn_xiaoji = document.querySelectorAll("button")[0];
+            var btn_shaobei = document.querySelectorAll("button")[1];
+            var img = document.querySelector("img");
+            btn_shaobei.onclick = function () {
+                img.src = "烧杯.jpg";
+                img.title = "我是大烧杯";
+            };
+            btn_xiaoji.onclick = function () {
+                img.src = "小鸡.jpg";
+                img.title = "我是帅小鸡";
+            };
+        </script>
+    </body>
+</html>
