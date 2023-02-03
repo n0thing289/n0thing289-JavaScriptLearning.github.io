@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>世纪佳缘作业</title>
+        <style type="text/css">
+            .id {
+                color: #999;
+            }
+            .pwd {
+                color: #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <input class="id" type="text" value="邮箱/ID/手机号" />
+            <input class="pwd" type="text" value="密码" />
+            <button>登录</button>
+        </div>
+
+        <script>
+            var id = document.querySelectorAll("input")[0];
+            id.onclick = function () {
+                if (id.value == "邮箱/ID/手机号") {
+                    id.value = "";
+                }
+
+                id.style.borderColor = "pink";
+                id.style.color = "black";
+            };
+            id.onblur = function () {
+                if (id.value.length == 0) {
+                    id.value = "邮箱/ID/手机号";
+                }
+
+                id.style.color = "#999";
+            };
+
+            //
+            var pwd = document.querySelectorAll("input")[1];
+            pwd.onclick = function () {
+                if (pwd.value == "密码") {
+                    pwd.value = "";
+                    pwd.type = "password";
+                }
+                pwd.style.borderColor = "pink";
+                pwd.style.color = "black";
+            };
+
+            pwd.onblur = function () {
+                if (pwd.value.length == 0) {
+                    pwd.value = "密码";
+                    pwd.type = "text";
+                }
+                pwd.style.color = "#999";
+            };
+        </script>
+    </body>
+</html>

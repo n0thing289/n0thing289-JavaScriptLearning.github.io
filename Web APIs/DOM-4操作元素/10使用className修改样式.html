@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style type="text/css">
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+            }
+            /* 写一个预备用的类选择器 */
+            .change {
+                color: aqua;
+                background-color: black;
+                margin-top: 300px;
+            }
+            .first {
+                border: 10px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="first">文本</div>
+        <script>
+            var div = document.querySelector("div");
+            div.onclick = function () {
+                // div.style.color = "pink";
+                // div.style.backgroundColor = "green";
+                // div.style.marginTop = "100px";
+                //太多了,不如用className
+                //在这里只需要赋给div.className就可以
+                // div.className = "change";
+
+                //如果之前已经有了样式,则会覆盖(f12 仔细看)
+                // 如果我想合并两个样式呢?
+                div.className = "first change";
+            };
+        </script>
+    </body>
+</html>

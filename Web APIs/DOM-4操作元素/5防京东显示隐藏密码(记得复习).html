@@ -9,7 +9,7 @@
             div {
                 width: 400px;
                 margin: 100px auto;
-                border-bottom: 1px solid #ccc;
+                /* border-bottom: 1px solid #ccc; */
                 position: relative;
             }
             input {
@@ -26,10 +26,17 @@
                 bottom: 14px;
                 right: 30px;
             }
+            div p {
+                color: #ccc;
+                position: absolute;
+                top: 24px;
+                left: 12px;
+            }
         </style>
     </head>
     <body>
         <div>
+            <p>请输入密码</p>
             <from>
                 <label for=""
                     ><img src="evening.png" width="24px" id="close"
@@ -55,6 +62,11 @@
                     img.src = "evening.png";
                     flag = 0;
                 }
+            };
+            //
+            var p = document.querySelector("p");
+            pwd.onclick = function () {
+                p.style.display = "none";
             };
         </script>
     </body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style type="text/css">
+            * {
+                list-style: none;
+            }
+            ul {
+                width: 400px;
+                height: 400px;
+                margin: 100px auto;
+                border: 1px solid #ccc;
+            }
+            li {
+                width: 24px;
+                height: 24px;
+                /* background-color: pink; */
+                border: 1px solid #ccc;
+                margin: 24px 24px;
+                display: inline-block;
+                background: url(spirite.png) no-repeat;
+            }
+            .one {
+                width: 311px;
+                padding: 12px;
+
+                display: block;
+                border: 1px solid #ccc;
+            }
+            /* .two {
+                display: block;
+            }
+            .three {
+                display: block;
+            } */
+        </style>
+    </head>
+    <body>
+        <ul>
+            <div class="one">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </div>
+            <div class="one">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </div>
+            <div class="one">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </div>
+        </ul>
+
+        <script>
+            var lis = document.querySelectorAll("li");
+            for (var i = 0; i < lis.length; i++) {
+                var position = 44 * i;
+                lis[i].style.backgroundPosition = "0 -" + position + "px";
+            }
+        </script>
+    </body>
+</html>
