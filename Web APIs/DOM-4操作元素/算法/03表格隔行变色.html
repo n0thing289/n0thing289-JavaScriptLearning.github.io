@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            table {
+                width: 200px;
+                margin: 100px auto;
+            }
+            .bg {
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                    <th>1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td>33</td>
+                    <td>33</td>
+                    <td>33</td>
+                    <td>33</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>44</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td>55</td>
+                    <td>55</td>
+                    <td>55</td>
+                    <td>55</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            //开始用规范的编程书写
+            //1. 链式查找
+            var trs = document.querySelector("tbody").querySelectorAll("tr");
+            for (var i = 0; i < trs.length; i++) {
+                trs[i].onmouseover = function () {
+                    //2. 尽管只有一个样式属性修改但还是用类名
+                    this.className = "bg";
+                };
+                trs[i].onmouseout = function () {
+                    this.className = "";
+                };
+            }
+        </script>
+    </body>
+</html>

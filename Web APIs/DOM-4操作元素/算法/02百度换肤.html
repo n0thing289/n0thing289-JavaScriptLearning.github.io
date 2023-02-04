@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                background-image: url(../morning.png);
+            }
+            div {
+                width: 650px;
+                margin: 100px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="../morning.png" width="200px" height="150px" />
+            <img src="../afternoon.jpg" width="200px" height="150px" />
+            <img src="../evening.png" width="200px" height="150px" />
+        </div>
+
+        <script>
+            var imgs = document.querySelectorAll("img");
+            var body = document.body;
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].onclick = function () {
+                    console.log(this.src);
+                    body.style.backgroundImage = "url(" + this.src + ")";
+                };
+            }
+        </script>
+    </body>
+</html>

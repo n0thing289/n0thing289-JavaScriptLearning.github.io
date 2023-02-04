@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            table {
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" /></th>
+                    <th>商品</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="tds" /></td>
+                    <td>iphone</td>
+                    <td>5000$</td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" class="tds" /></td>
+                    <td>ipad</td>
+                    <td>4000$</td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" class="tds" /></td>
+                    <td>iphone12xms</td>
+                    <td>10000$</td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" class="tds" /></td>
+                    <td>airports</td>
+                    <td>1000$</td>
+                </tr>
+            </tbody>
+        </table>
+        <script>
+            var th = document.querySelector("thead").querySelector("input");
+            var tds = document.getElementsByClassName("tds");
+            th.onclick = function () {
+                for (var i = 0; i < tds.length; i++) {
+                    tds[i].checked = this.checked; //选择状态(true/false)
+                }
+            };
+
+            for (var i = 0; i < tds.length; i++) {
+                tds[i].onclick = function () {
+                    //1.先循环判断小复选框的状态
+                    //2. 用拦路虎思想,把不成功的情况写在上面阻止线程继续运行下面代码,
+                    //所有不成功的情况都通过才执行正确的代码
+                    for (var j = 0; j < tds.length; j++) {
+                        if (tds[j].checked == false) {
+                            //true/false
+                            th.checked = false;
+                            return;
+                        }
+                    }
+                    th.checked = this.checked;
+                };
+            }
+        </script>
+    </body>
+</html>

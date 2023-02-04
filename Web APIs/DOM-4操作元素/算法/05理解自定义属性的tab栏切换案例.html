@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+            }
+            .tab {
+                width: 800px;
+                margin: 100px auto;
+            }
+            .tab_head {
+                width: 800px;
+                background-color: #ccc;
+            }
+            .tab_head div {
+                display: inline-block;
+                padding: 10px;
+            }
+            .tab_body div {
+                width: 400px;
+                display: none;
+            }
+            .spjs {
+                background-color: red;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tab">
+            <div class="tab_head">
+                <div class="spjs">商品介绍</div>
+                <div class="ggybz">规格与包装</div>
+                <div class="shbz">售后保障</div>
+                <div class="sppj">商品评价(50000)</div>
+                <div class="sjsq">手机社区</div>
+            </div>
+
+            <div class="tab_body">
+                <div style="display: block">商品介绍模块</div>
+                <div>规格与包装模块</div>
+                <div>售后保障模块</div>
+                <div>商品评价模块</div>
+                <div>手机社区模块</div>
+            </div>
+        </div>
+        <script>
+            var thdivs = document
+                .querySelector(".tab_head")
+                .querySelectorAll("div");
+            var tddivs = document
+                .querySelector(".tab_body")
+                .querySelectorAll("div");
+            for (var i = 0; i < thdivs.length; i++) {
+                tddivs[i].setAttribute("index", i);
+                thdivs[i].setAttribute("index", i);
+                thdivs[i].onclick = function () {
+                    for (var j = 0; j < thdivs.length; j++) {
+                        thdivs[j].className = "";
+                    }
+                    this.className = "spjs";
+
+                    //2.
+                    for (var j = 0; j < tddivs.length; j++) {
+                        tddivs[j].style.display = "none";
+                    }
+                    var index = this.getAttribute("index");
+                    tddivs[index].style.display = "block";
+                };
+            }
+        </script>
+    </body>
+</html>
