@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            table {
+                width: 500px;
+                margin: 100px auto;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            td,
+            th {
+                border: 1px solid #333;
+            }
+            thead tr {
+                height: 40px;
+                background-color: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <table cellspacing="0">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>科目</th>
+                    <th>成绩</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <script>
+            var dates = [
+                {
+                    name: "qwe",
+                    subject: "javascript",
+                    score: 100,
+                },
+                {
+                    name: "qwww",
+                    subject: "javascript",
+                    score: 10,
+                },
+                {
+                    name: "ww",
+                    subject: "javascript",
+                    score: 120,
+                },
+                {
+                    name: "ww",
+                    subject: "javascript",
+                    score: 120,
+                },
+            ];
+            // 2. 根据数组长度遍历，创建行
+            var tbody = document.querySelector("tbody");
+            for (var i = 0; i < dates.length; i++) {
+                var tr = document.createElement("tr");
+                tbody.appendChild(tr);
+
+                //3. 行里面创建单元格td
+                for (var k in dates[i]) {
+                    var td = document.createElement("td");
+                    td.innerHTML = dates[i][k]; //4. 填充数据
+                    tr.appendChild(td);
+                }
+                //4.
+                var td = document.createElement("td");
+                td.innerHTML = '<a href="javascript:;">删除</a>';
+                tr.appendChild(td);
+
+                //5.
+            }
+            var as = document.querySelectorAll("a");
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    var tr = this.parentNode.parentNode;
+                    tbody.removeChild(tr);
+                };
+            }
+        </script>
+    </body>
+</html>
