@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .content {
+                width: 500px;
+                height: 500px;
+                margin: 100px auto;
+                border: 1px solid #ccc;
+            }
+            span {
+                width: 100px;
+                height: 100px;
+                display: inline-block;
+                background: black;
+                color: white;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            距离开学还有:<br />
+
+            <span class="day">d</span>
+            <span class="hour">h</span>
+            <span class="minute">m</span>
+            <span class="second">s</span>
+        </div>
+        <script>
+            function countDown(time) {
+                var nowTime = +new Date();
+                var inputTime = +new Date(time);
+
+                var times = (inputTime - nowTime) / 1000;
+
+                var d = parseInt(times / 60 / 60 / 24);
+                d = d < 10 ? "0" + d : d;
+
+                var h = parseInt((times / 60 / 60) % 24);
+                h = h < 10 ? "0" + h : h;
+
+                var m = parseInt((times / 60) % 60);
+                m = m < 10 ? "0" + m : m;
+
+                var s = parseInt(times % 60);
+                s = s < 10 ? "0" + s : s;
+
+                return [d, h, m, s];
+            }
+
+            var p = document.querySelector("p");
+            var timeboxs = document.querySelectorAll("span");
+            window.addEventListener("load", function () {
+                var timeout1 = window.setInterval(function () {
+                    var timeArr = countDown("2023-2-15");
+                    var d = timeArr[0];
+                    var h = timeArr[1];
+                    var m = timeArr[2];
+                    var s = timeArr[3];
+
+                    timeboxs[0].innerHTML = d + "天";
+                    timeboxs[1].innerHTML = h + "时";
+                    timeboxs[2].innerHTML = m + "分";
+                    timeboxs[3].innerHTML = s + "秒";
+                }, 1000);
+            });
+        </script>
+    </body>
+</html>

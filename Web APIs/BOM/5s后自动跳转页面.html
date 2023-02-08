@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button>跳转</button>
+        <div></div>
+        <script>
+            //如果想先显示,不要有延迟,那么先调用一次
+            var btn = document.querySelector("button");
+            var div = btn.nextElementSibling;
+
+            var sec = 5;
+            var time1 = setInterval(fn, 1000);
+            function fn() {
+                if (sec <= 0) {
+                    clearInterval(time1);
+                    location.href = "https://space.bilibili.com/";
+                }
+                div.innerHTML = sec-- + "秒跳转";
+            }
+            fn();
+            btn.addEventListener("click", function () {});
+        </script>
+    </body>
+</html>
