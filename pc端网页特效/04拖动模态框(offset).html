@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .father {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+
+                /* 单行文字居中 */
+                text-align: center;
+                line-height: 200px;
+                position: absolute;
+                /* 让盒子水平竖直居中
+                    固定定位
+                    transform:transform: (-50% -50%);
+                */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="father"></div>
+        <script>
+            var father = document.querySelector("div");
+
+            father.addEventListener("mousedown", function (e) {
+                //拿到鼠标点击时,距离页面的xy
+                // console.log(e.pageX);
+                // console.log(e.pageY);
+                //拿到div距离页面的xy
+                // console.log(father.offsetLeft);
+                // console.log(father.offsetTop);
+
+                //根据计算公式: 鼠标盒子距离 = 鼠标到页面xy - 盒子到页面xy
+                mousedivX = e.pageX - this.offsetLeft;
+                mousedivY = e.pageY - this.offsetTop;
+
+                // console.log(mousedivX);
+                // console.log(mousedivY);
+                this.innerHTML = "X: " + mousedivX + " Y: " + mousedivY;
+
+                function move(e) {
+                    father.style.left = e.pageX - mousedivX + "px";
+                    father.style.top = e.pageY - mousedivY + "px";
+                }
+                document.addEventListener("mousemove", move);
+                document.addEventListener("mouseup", function (e) {
+                    this.removeEventListener("mousemove", move);
+                });
+            });
+        </script>
+    </body>
+</html>
