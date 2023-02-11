@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            left:0px;
+            width:100px;
+            height:100px;
+            background-color: pink;
+        }
+        span{
+
+            position: absolute;
+            left:0px;
+            top: 200px;
+            width:100px;
+            height:100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div></div> -->
+    <span> 666</span>
+    <button style="z-index: 999;">点击让666行动</button>
+    <button class="btn500">点击让666行动500</button>
+    <button class="btn800">点击让666行动800</button>
+
+
+    <script>
+        //1. 获取盒子当时的位置
+        //2. 不断加1偏移
+        //用定时器重复
+        //4. 判断条件,不要跑出去了
+        //5. 记得定位
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        var button = document.querySelector('button');
+        function animate(obj, target,rate,callback){
+            //先清除之前的定时器,就不会导致越点越多的定时器
+            clearInterval(obj.timer);
+
+            //一计算步长
+            //二强转一下
+            var step = (target - obj.offsetLeft) / 10;
+            step = step > 0? Math.ceil(step) : Math.floor(step);
+            obj.timer = setInterval(function fn(){
+            if(obj.offsetLeft == target){
+                clearInterval(obj.timer);
+                if(callback){
+                    callback();
+                }
+            }else{
+                obj.style.left = obj.offsetLeft + step + 'px';
+                console.log(obj.offsetLeft);
+            }
+            
+            },rate);
+        }
+        
+        // animate(div, 500,10);
+        button.addEventListener('click', function(){
+            animate(span,500,15);
+
+        })
+
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+
+        btn500.addEventListener('click', function(){
+            animate(span,500,15, function(){
+                span.style.backgroundColor = 'red';
+            });
+
+        })
+        btn800.addEventListener('click', function(){
+            animate(span,800,15);
+
+        })
+    </script>
+</body>
+</html>

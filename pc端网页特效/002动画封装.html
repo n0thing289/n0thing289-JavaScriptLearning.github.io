@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            left:0px;
+            width:100px;
+            height:100px;
+            background-color: pink;
+        }
+        span{
+
+            position: relative;
+            left:0px;
+            top: 200px;
+            width:100px;
+            height:100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <span> 666</span>
+    <script>
+        //1. 获取盒子当时的位置
+        //2. 不断加1偏移
+        //用定时器重复
+        //4. 判断条件,不要跑出去了
+        //5. 记得定位
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+
+        function animate(obj, target,rate){
+            var time = setInterval(function fn(){
+            if(obj.offsetLeft > target){
+                clearInterval(time);
+            }
+            obj.style.left = obj.offsetLeft + 1 + 'px';
+            console.log(obj.offsetLeft);
+            },rate);
+        }
+        
+        // animate(div, 500,10);
+        animate(span,1000,20);
+    </script>
+</body>
+</html>

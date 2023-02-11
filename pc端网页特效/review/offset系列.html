@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: fit-content;
+            border: 1px solid #ccc;
+        }
+        .son{
+            width: fit-content;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">father</div>
+    <div class="son">son</div>
+
+    <script>
+        var father = document.querySelector('.father');
+        var son = father.nextElementSibling;
+
+        console.log(father.offsetLeft);
+        console.log(son.offsetLeft);
+        console.log(father.offsetTop);
+        console.log(father.offsetHeight);
+        console.log(son.offsetTop);
+    </script>
+</body>
+</html>
