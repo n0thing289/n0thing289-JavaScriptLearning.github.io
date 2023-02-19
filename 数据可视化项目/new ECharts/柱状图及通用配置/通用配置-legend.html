@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="lib/echarts.min.js"></script>
+    <script>
+        // 1. 引入echarts库
+        // 2. 准备好用于呈现图标的盒子
+        // 3. 实例化echarts
+        var myecharts = echarts.init(document.querySelector('div'));
+        // 4. 书写配置项
+        var xdata = ['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"];
+        var ydata1 = [88,92,63,77,94,80,72,86];
+        var ydata2 = [8,92,3,70,40,10,40,99];
+        var option = {
+            title:{
+                text:'期末语文成绩',
+                color:'red'
+            },
+            xAxis:{
+                type:'category',
+                data:xdata,
+            },
+            yAxis:{
+                type:'value',
+            },
+            series:[
+                {
+                    name:'语文',
+                    type:'bar',
+                    data:ydata1
+                },
+                {
+                    name:'数学',
+                    type:'bar',
+                    data:ydata2,
+                }
+            ],
+            //图例
+            legend:{
+                data:['语文','数学']//data数组内的元素要和每个系列的name长度顺序要匹配
+            }
+        }
+        // 5. 将配置项传给setOption()
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

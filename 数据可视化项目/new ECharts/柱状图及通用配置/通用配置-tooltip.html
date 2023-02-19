@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="lib/echarts.min.js"></script>
+    <script>
+        // 1. 引入echarts库
+        // 2. 准备好用于呈现图标的盒子
+        // 3. 实例化echarts
+        var myecharts = echarts.init(document.querySelector('div'));
+        // 4. 书写配置项
+        var option = {
+            title:{
+                text:'期末语文成绩',
+                
+            },
+            tooltip:{
+                show:true,
+                // 给这个tip框添加css样式
+                extraCssText:'width:170px;height:30px',
+                //触发类型
+                trigger:'item',
+                //触发时机,什么时候显示
+                triggerOn:'click',//默认是mousemove
+                //formatter,显示什么东西
+                // 使用官方提供的字符串模板
+                // formatter:'{a} : {c}',
+                // 使用回调函数(有点像事件类型,系统会自动传入参数)
+                formatter:function(arg){
+                    console.log(arg);
+                    return arg.name + '的' + arg.seriesName + '是' + arg.data;
+                }
+            },
+            xAxis:{
+                type:'category',
+                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"]
+            },
+            yAxis:{
+                type:'value',
+            },
+            series:[
+                {
+                    name:"语文成绩",
+                    type:'bar',
+                    
+                    data:[88,92,63,77,94,80,72,86]
+                }
+            ]
+        }
+        // 5. 将配置项传给setOption()
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

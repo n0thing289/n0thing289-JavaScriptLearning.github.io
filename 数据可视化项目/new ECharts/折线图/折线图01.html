@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:700px;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../lib/echarts.min.js"></script>
+    <script>
+        var myechatrs = echarts.init(document.querySelector('div'));
+        var option = {
+            // title:{
+            //     text:'康师傅泡面销量情况',
+            //     textStyle:{
+            //         color:'pink',
+            //     },
+            //     borderWidth:1,
+            //     borderColor:'blue',
+            //     borderRadius:10,
+            // },
+            // tooltip:{
+            //     trigger:'item',
+            //     triggerOn:'click',
+            //     formatter:function(arg){
+            //         return arg.name + '的' + arg.seriesName + '是' + arg.data;
+
+            //     },
+            //     // 不知道为什么,老师的tip框不会这么大的离谱,可能因为老师用的是谷歌浏览器
+            //     //因此我们要修改样式
+            //     extraCssText:'width:100px; height:50px',
+            // },
+            // toolbox:{
+            //     feature:{
+            //         saveAsImage:{},
+            //         dataView:{},
+            //         dataZoom:{},
+            //         magicType:{
+            //             type:['bar','line'],
+            //         },
+            //         restore:{},
+            //     },//Snipaste截图工具，在微软商店直接安装
+            // },
+            xAxis:{
+                type:'category',
+                data:['1月',"2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+            },
+            yAxis:{
+                type:'value',
+            },
+            series:[
+                {
+                    name:'销量',
+                    type:'line',
+                    data:[3000,2800,900,1000,800,700,1400,1300,900,1000,800,600],
+                }
+            ],
+        };
+        myechatrs.setOption(option);
+        // 为了巩固之前学的配置项,来写多一下
+    </script>
+</body>
+</html>

@@ -7,8 +7,8 @@
     <title>Document</title>
     <style>
         div{
-            width: 1000px;
-            height: 1000px;
+            width: 500px;
+            height: 500px;
         }
     </style>
 </head>
@@ -26,6 +26,18 @@
                 text:'期末语文成绩',
                 color:'red'
             },
+            toolbox:{
+                feature:{
+                    saveAsImage:{},
+                    dataView:{},
+                    dataZoom:{},
+                    restore:{},
+                    magicType:{
+                        type:['line', 'bar']
+                    }
+                },
+                
+            },
             xAxis:{
                 type:'category',
                 data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"]
@@ -37,36 +49,6 @@
                 {
                     name:"期末语文成绩",
                     type:'bar',
-                    // 柱状图的常用效果-最大值和最小值
-                    markPoint:{
-                        data:[
-                            {
-                                type:'max', name:'最大值',
-                            },
-                            {
-                                type:'min', name:'最小值',
-                            }
-                        ]
-                    },
-                    // 柱状图常用效果-平均线
-                    markLine:{
-                        data:[
-                            {
-                                type:'average',name:'平均值'
-                            }
-                        ]
-                    },
-                    // 柱状图常用效果-数值显示 :显示每个人的value
-                    label:{
-                        show:true,
-                        rotate:60,//显示的内容旋转
-                        //position,默认 'inside'
-                        position:'top',
-
-                    },
-                    // 柱状图常用效果-柱宽度
-                    barWidth:'30%',
-                    // 柱状图常用效果- 横向柱状图(将两个轴对调)
 
                     data:[88,92,63,77,94,80,72,86]
                 }

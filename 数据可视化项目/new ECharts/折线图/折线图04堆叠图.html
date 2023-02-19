@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:700px;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../lib/echarts.min.js"></script>
+    <script>
+        var myechatrs = echarts.init(document.querySelector('div'));
+        var xdata = ['1月',"2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+        var ydata1 = [3000,2800,900,1000,800,700,1400,1300,900,1000,800,600];
+        var ydata2 = [2000,3800,1900,500,900,1700,2400,300,1900,1500,1800,200];
+        var option = {      
+            xAxis:{
+                type:'category',
+                data:['1月',"2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+                
+
+            },
+            yAxis:{
+                type:'value',
+                
+            },
+            series:[
+                {
+                    name:'销量',
+                    type:'line',
+                    data:ydata1,
+                    // 堆叠图(保证两个stack的值是一样的,两个线条就不会交叉)-stack
+                    stack:'all',
+                    //增加堆叠阴影(areaStyle,开启不写color就用默认颜色填充)
+                    areaStyle:{},
+                },
+                {
+                    type:'line',
+                    data:ydata2,
+                    stack:'all',
+                    areaStyle:{},
+                }
+            ],
+        };
+        myechatrs.setOption(option);
+    </script>
+</body>
+</html>
