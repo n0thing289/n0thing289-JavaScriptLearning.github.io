@@ -35,9 +35,43 @@
             },
             series:[
                 {
-                    type:'scatter',
+                    // 涟漪效果
+                    type:'effectScatter',
+                    // 设置涟漪什么时候播放
+                    showEffectOn:'emphasis',// render(加载完后每个点都播放), emphasis(鼠标经过播放)
+                    // 设置涟漪动画的半径
+                    rippleEffect:{
+                        scale:10,
+                    },
                     name:'身高体重',
                     data:data,// 当xy轴都设置了value类型,那么会自动在系列中去找值,每个一位数组就是一个点,一维数组的第一个是x,第二个是y
+
+                    //气泡图
+                    // 接受一个数字
+                    symbolSize:function(arg){//这里的参数系统会自动传入一个参数(可以是数组或者对象, symbolSize是传入数组)
+                        // console.log(arg);
+                        var height = arg[0] /100;
+                        var weight = arg[1];
+                        var bmi = weight / (height * height);
+                        if(bmi > 28){
+                            return 20;
+                        }
+                        return 5;
+                    },
+                    // 颜色
+                    itemStyle:{
+                        color:function(arg){
+                            // console.log(arg);// 返回对象
+                            var height = arg.data[0] /100;
+                            var weight = arg.data[1];
+                            var bmi = weight / (height * height);
+                            if(bmi > 28){
+                                return 'red';
+                            }
+                            return 'green';
+                        }
+                    },
+
                 }
             ],
         };
