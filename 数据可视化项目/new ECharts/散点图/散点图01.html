@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../lib/echarts.min.js"></script>
+    <script>
+        var data = [[1,2],[3,4],[1,5],[8,9]];
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+            xAxis:{
+                type:'value',
+                scale:true,
+            },
+            yAxis:{
+                type:'value',
+                scale:true,
+            },
+            series:[
+                {
+                    type:'scatter',
+                    name:'身高体重',
+                    data:data,// 当xy轴都设置了value类型,那么会自动在系列中去找值,每个一位数组就是一个点,一维数组的第一个是x,第二个是y
+                }
+            ],
+        };
+        myecharts.setOption(option);
+        //此外还可以设置缩放，摆脱0值比例
+    </script>
+</body>
+</html>
