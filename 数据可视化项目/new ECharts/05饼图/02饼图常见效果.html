@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 600px;
+            height: 600px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script src="../lib/echarts.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ];
+        var option = {
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                    // 饼图常见效果
+                    label:{
+                        show:true,
+                        //1 formatter: 'hehe',//决定文字显示地内容
+                        formatter:function(arg){
+                            console.log(arg);// arg是一个对象
+                            return arg.name + ":" + arg.percent + "%";
+                        }
+
+                    },
+                    //2 radius:100,// 也可以用百分比 (String): 参照的是宽度和高度中较小地那一部分来进行百分比设置
+                    // radius:[100, 200] // 弟一个元素是设置内园半径, 第二个元素是外圆半径
+
+                    //3 南丁格尔图( 每个块半径不同取决于那部分数值地大小)
+                    roseType:'radius',
+
+                    //4 选中效果
+                    // selectedMode:'single'// 选中后,能使那部分偏离原点一小段距离
+                    selectedMode:'multiple',// 多个部分偏离远点
+
+                    selectedOffset:30//选中偏移量
+
+                }
+            ]
+        };
+        // 数据准备和坐标轴不同
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

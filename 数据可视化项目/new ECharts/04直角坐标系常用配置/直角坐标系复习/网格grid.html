@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+            //网格
+            grid:{
+                show:true,
+
+                borderWidth:10,
+                borderColor:'red',
+
+                top:100,
+                left:100,
+
+                // width:'50%',
+                // height:'50%',
+            },
+            xAxis:{
+                type:'category',
+                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"],
+
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[
+                {
+                    type:'bar',
+                    name:'',
+                    data:[88,92,63,77,94,80,72,86],
+
+                    markPoint:{
+                        data:[
+                            {
+                                type:'min',name:'最小值'
+                            },
+                            {
+                                type:'max',name:'最大值'
+                            }
+                        ]
+                    },
+                    markLine:{
+                        data:[
+                            {
+                                type:'average',
+                            }
+                        ]
+                    },
+                    label:{
+                        show:true,
+                        rotate:60,
+                        position:'top',
+                    }
+
+                }
+            ],
+        }
+        myecharts.setOption(option);
+    </script>
+    
+</body>
+</html>

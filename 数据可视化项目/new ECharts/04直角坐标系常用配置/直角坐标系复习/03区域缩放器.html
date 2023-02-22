@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+            //之前学的区域缩放器
+            // toolbox:{
+            //     feature:{
+            //         dataZoom:{},
+            //     }
+            // },
+            dataZoom:[
+                {
+                    type:'slider',
+                    xAxisIndex:0,
+
+                    start:50,
+                    end:90,
+                },
+                {
+                    type:'inside',
+                    yAxisIndex:0,
+                }
+            ],
+            xAxis:{
+                type:'category',
+                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"],
+                position:'top',
+            },
+            yAxis:{
+                type:'value',
+                position:'right',
+            },
+            series:[
+                {
+                    type:'bar',
+                    name:'',
+                    data:[88,92,63,77,94,80,72,86],
+
+                    markPoint:{
+                        data:[
+                            {
+                                type:'min',name:'最小值'
+                            },
+                            {
+                                type:'max',name:'最大值'
+                            }
+                        ]
+                    },
+                    markLine:{
+                        data:[
+                            {
+                                type:'average',
+                            }
+                        ]
+                    },
+                    label:{
+                        show:true,
+                        rotate:60,
+                        position:'top',
+                    }
+
+                }
+            ],
+        }
+        myecharts.setOption(option);
+    </script>
+    
+</body>
+</html>

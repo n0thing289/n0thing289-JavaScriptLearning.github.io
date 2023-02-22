@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height:100%;
+            /* ?? */
+            object-fit: cover;
+        }
+        .overlay{
+            /* 给背景视频来点蒙版 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: darkkhaki;
+            /* ?? */
+            mix-blend-mode: overlay;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        window.addEventListener('load',function(){
+            var bgvideo = document.querySelector('video');
+            console.log(bgvideo);
+            // 1. 获取视频的宽高
+            // 2. 获取浏览器的宽高（body）
+            // 3. 将视频的宽高修改至与浏览器宽高一致 
+            // .以上可以用width和height样式修改100% 100%,但是当宽口拉伸时,由于宽高至少一个被固定了,会出现黑/白边(不能适应浏览器窗口变化而变化)
+            //  可以用object-fit:cover 解决
+        })
+        
+    </script>
+</head>
+<body>
+    <div>
+        <video src="night.mp4" autoplay loop muted></video>
+        <!-- <div class="overlay"></div> -->
+    </div>
+</body>
+</html>

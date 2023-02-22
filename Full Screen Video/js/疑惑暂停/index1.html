@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/use.js"></script>
+
+    <style>
+        /* 清除浏览器默认样式 */
+        *{
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        /* 大盒子 */
+        .lunbo{
+            width:700px;
+            height:500px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            border: 1px solid #ccc;
+            margin-left: -350px;
+            margin-top: -250px;
+        }
+        a{
+            width:22px;
+            height:22px;
+            background-color: #3b3b3b;
+        }
+        /* 统一设置图片大小 */
+        img{
+            width:700px;
+            height:500px;
+            /* 一开始左浮动没有用是因为ul限制了width */
+            float: left;
+            
+        }
+        /* 设置ul宽度 */
+        ul{
+            /* 设置成父元素宽度的5倍 */
+            width:400%;
+        }
+        .aleft{
+            position: absolute;
+            top: 239px;
+            border-radius: 0px 10px 10px 0px;
+            /* js */
+            display: none;
+        }
+        .aright{
+            position: absolute;
+            top:239px;
+            right:0;
+            border-radius: 10px 0px 0px 10px;
+            display: none;
+        }
+        /* 下方小圆点 */
+        ol{
+            width: 100px;
+            height:15px;
+            /* border: 1px solid black; */
+            background-color: rgb(126, 126, 126);
+            float: left;
+            position: absolute;
+            top:94%;
+            left:300px;
+            border-radius: 20px;
+            /* 先定ol的位置再来定li */
+
+            /* opacity: 0.5;这里把ol全部变虚,后面用事件给他单独设置透明度 */
+        }
+        ol li{
+            /* 有了宽高就不需要内容来撑起边框了 */
+            width:8px;
+            height:8px;
+            display: inline-block;
+            /* border: 1px solid #3b3b3b; */
+            border-radius: 50% 50%;
+            background-color: white;
+            /* 定位移动到ol的中心 */
+            /* 如果用absolutive 全部会挤一起 */
+            position: relative;
+            top:-5px;
+            /* 如果你用绝对, 10px是对的但是relative是本原本位置开始动,不是左上角开始动 */
+            /* 四个挤一起了不好看 */
+            left:23px;
+            margin-right: 2px;
+            /* 如果没有外边距的话30肯定是对的,就能居中,我没去定义外边距也不知道默认的外边距(懒得算) 直接f12看着定的*/
+        }
+        .current{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="lunbo">
+        <!-- zuo左按钮-->
+        <a class="aleft">👈</a>
+        <!-- 右按钮 -->
+        <a class="aright">👉</a>
+
+        <!-- 核心的部分 -->
+        <ul class="imgs">
+            <li><img src="cxk1.png"></li>
+            <li><img src="cxk2.png"></li>
+            <li><img src="cxk3.png"></li>
+            <li><img src="cxk4.png"></li>
+        </ul>
+
+        <!-- 轮播图下方的小点点 -->
+        <ol class="circls">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <!--为什么新加的会粘一起,这四个不会 -->
+        </ol>
+    </div>
+</body>
+</html>
