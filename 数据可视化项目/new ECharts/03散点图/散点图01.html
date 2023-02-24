@@ -23,6 +23,7 @@
             var weight = Alldata[i].weight;
             data[data.length] = [height, weight];// 其实可以用push方法
         };
+        console.log(data);
         var myecharts = echarts.init(document.querySelector('div'));
         var option = {
             xAxis:{

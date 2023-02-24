@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../lib/echarts.min.js"></script>
+    <script>
+
+        var myecharts = echarts.init(document.querySelector('div'));
+        var dataMax = [// 3 每个维度的最大值
+            {
+                name:'易用性', max:100,
+            },
+            {
+                name:'功能', max:100,
+            },
+            {
+                name:'拍照',max:100,
+
+            },
+            {
+                name:'跑分',max:100,
+            },
+            {
+                name:'续航',max:100,
+            }
+        ];
+        var option = {
+            radar:{
+                indicator:dataMax,
+                shape:'circle'//绘制类型: 配置雷达图最外层的图形 circle polygon
+            },
+            series:[
+                {
+                    type:'radar',
+                    data:[
+                        {
+                            name:'华为手机1',value:[80,90,80,82,90]
+                        },
+                        {
+                            name:'中兴手机1',value:[70,82,75,70,78]
+                        }
+                    ],
+                    // 常用配置
+                    label:{// 数值显示
+                        show:true,//显示每一个维度数值
+                    },
+                    areaStyle:{},//填充阴影面积
+                    
+                }
+            ],
+        }
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

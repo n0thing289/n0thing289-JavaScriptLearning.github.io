@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
+
+    <script>
+        // 1. 准备基本代码结构
+        var myecharts = echarts.init(document.querySelector('div'));
+        $.get('../json/map/china.json', function(ret){ // 2. 在Ajax的get方法中获取json数据
+            echarts.registerMap('chinaMap', ret);// 3. 在Ajax的回调函数中完成配置配置项和设置配置项
+            var option = {
+                geo:{
+                    type:'map',
+                    map:'chinaMap',
+                    roam:true,
+                    label:{
+                        show:true,
+                    },
+                    zoom:1,
+                    center:[],
+                }
+            }
+            myecharts.setOption(option);
+        })
+    </script>
+</body>
+</html>

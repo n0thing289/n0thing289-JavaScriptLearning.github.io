@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script src="../lib/echarts.min.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <script>
+        var airData = [
+        { name: '北京', value: 39.92 },
+        { name: '天津', value: 39.13 },
+        { name: '上海', value: 31.22 },
+        { name: '重庆', value: 66 },
+        { name: '河北', value: 147 },
+        { name: '河南', value: 113 },
+        { name: '云南', value: 25.04 },
+        { name: '辽宁', value: 50 },
+        { name: '黑龙江', value: 114 },
+        { name: '湖南', value: 175 },
+        { name: '安徽', value: 117 },
+        { name: '山东', value: 92 },
+        { name: '新疆', value: 84 },
+        { name: '江苏', value: 67 },
+        { name: '浙江', value: 84 },
+        { name: '江西', value: 96 },
+        { name: '湖北', value: 273 },
+        { name: '广西', value: 59 },
+        { name: '甘肃', value: 99 },
+        { name: '山西', value: 39 },
+        { name: '内蒙古', value: 58 },
+        { name: '陕西', value: 61 },
+        { name: '吉林', value: 51 },
+        { name: '福建', value: 29 },
+        { name: '贵州', value: 71 },
+        { name: '广东', value: 38 },
+        { name: '青海', value: 57 },
+        { name: '西藏', value: 24 },
+        { name: '四川', value: 58 },
+        { name: '宁夏', value: 52 },
+        { name: '海南', value: 54 },
+        { name: '台湾', value: 88 },
+        { name: '香港', value: 66 },
+        { name: '澳门', value: 77 },
+        { name: '南海诸岛', value: 55 }
+    ]
+        
+        var scatterData = [
+            {
+                value:[117.283042, 31.86119],
+            }
+        ]
+        // 1. 给series增加新的对象
+        
+
+        var  myecharts = echarts.init(document.querySelector('div'));
+        $.get('json/map/china.json', function(ret){// 用Ajax获取矢量数据,将获取的矢量数据传入回调函数的形参ret
+            console.log(ret);
+            echarts.registerMap('chinaMap', ret)// 在Ajax get的回调函数中去用echarts注册方法(第一个参数是命名为什么,第二个参数是传入json数据)
+            var option = {
+                geo:{
+                    type:'map',// 类型是地图
+                    map:'chinaMap',// 指定你注册的那个地图(要和register第一个参数保持一致)
+                    // 常用效果
+                    roam:true, //1 允许缩放及拖动
+                    label:{
+                        show:true,//2 展示标签(名称)
+
+                    },
+                    zoom:1, // 设置初始化缩放比例,默认是1
+                    // center:[] // 设置地图中心点(输入某城市坐标, 第一个元素是x,第二个元素是y,然后将这个城市居中显示)
+                },
+                series:[
+                    {
+                        type:'map',
+                        geoIndex:0,
+                        data:airData,
+                    },
+                    {
+                        type:'effectScatter',
+                        data:scatterData,
+                        coordinateSystem:'geo',// 指明散点用的坐标系统是地图坐标系统(经纬度)
+                        rippleEffect:{
+                            scale:10,  // 设置涟漪动画的半径
+                        }
+                    }
+                ] ,
+                visualMap:{
+                    min:0,
+                    max:300,
+                    inRange:{
+                        color:['white', 'red'],
+                    },  
+                    calculable:true,
+                }
+                
+            };
+            myecharts.setOption(option);
+        })
+        // extra: vscode编写要用到 live Server 插件右键打开
+        
+    </script>
+</body>
+</html>
