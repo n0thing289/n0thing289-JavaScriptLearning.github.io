@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 600px;
+            height: 600px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script src="../lib/echarts.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+                itemStyle:{
+                    color:'pink'
+                },
+                label:{
+                    color:'green'
+                },
+                emphasis:{
+                    itemStyle:{
+                        color:'yellow',
+                    },
+                    label:{
+                        color:'red',
+                    },
+                }
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ];
+        var option = {
+            title:{
+                text:'饼图的测试',
+                textStyle:{
+                    color:'pink'
+                },
+            },
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                }
+            ]
+        };
+        // 数据准备和坐标轴不同
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

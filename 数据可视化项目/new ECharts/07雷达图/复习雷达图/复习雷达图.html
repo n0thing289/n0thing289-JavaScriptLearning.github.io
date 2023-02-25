@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var dataMax = [
+            {
+                name:'易用性',max:100
+            },
+            {
+                name:'跑分',max:100
+            },
+            {
+                name:'拍照',max:100
+            },
+            {
+                name:'游戏',max:100
+            },
+            {
+                name:'屏幕',max:100
+            }
+        ]
+        var myecharts  = echarts.init(document.querySelector('div'));
+        var option ={
+            radar:{
+                indicator: dataMax,
+                shape:'circle',//绘制类型 'circle' 'polygon'
+            },
+            series:[
+                {
+                    type:'radar',
+                    data:[
+                        {
+                            name:'华为nove11',value:[88,99,60,70,87]
+                        },
+                        {
+                            name:'荣耀v8',value:[90,70,50,70,88]
+                        }
+                    ],
+                    // 一些常见效果
+                    label:{
+                        show:true,//显示数值
+                    },
+                    areaStyle:{}// 填充阴影
+
+                }
+            ],
+        };
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>
