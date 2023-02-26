@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        // 1. 主题调色盘(在你自定义的主题或者默认主题中,registerTheme方法配置项下的color数组)
+        // 2. 全局调色盘(在option中配置color数组)
+        // 3. 局部调色盘(在series中配置color数组)
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ]
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+            color:['red','pink','green'],
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                    color:['black','white','pink'],
+                }
+            ]
+        };
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>
