@@ -14,6 +14,8 @@
 </head>
 <body>
     <div></div>
+    <button id="change"> 修改数据</button>
+    <button id="add"> 增加数据</button>
     <script src="../lib/echarts.min.js"></script>
     <script>
         // 1. 引入echarts库
@@ -21,6 +23,8 @@
         // 3. 实例化echarts
         var myecharts = echarts.init(document.querySelector('div'));
         // 4. 书写配置项
+        var xData = ['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"];
+        var yData = [88,92,63,77,94,80,72,86];
         var option = {
             title:{
                 text:'期末语文成绩',
@@ -29,9 +33,9 @@
                 },
             },
             xAxis:{
-                
+               
                 type:'category',
-                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"]
+                data:xData,
             },
             yAxis:{
                 type:'value',
@@ -71,12 +75,42 @@
                     barWidth:'30%',
                     // 柱状图常用效果- 横向柱状图(将两个轴对调)
 
-                    data:[88,92,63,77,94,80,72,86]
+                    data:yData,
                 }
             ]
         }
         // 5. 将配置项传给setOption()
         myecharts.setOption(option);
+
+        var changeBtn = document.querySelector('#change');
+        var newYDataArr = [33,22,63,77,94,80,72,86]
+        changeBtn.addEventListener('click', function(){
+            option.series = [
+                {
+                    data:newYDataArr,// 1 只要把要修改的部分写出来，echarts会自动合并两个新旧option之间的数据
+                }
+            ];
+            myecharts.setOption(option);// 2 把修改了的option再丢给setOption
+        });
+
+        var addBtn = document.querySelector('#add');
+        addBtn.addEventListener('click', function(){
+            // var newYDataArr2 = newYDataArr.push(70);
+            // var newXData = 'ajax';
+            xData.push("ajax");
+            yData.push(80);
+            var option = {
+                xAxis:{
+                    data: xData
+                },
+                series:[
+                    {
+                        data:yData
+                    }
+                ]
+            }
+            myecharts.setOption(option);
+        });
     </script>
 </body>
 </html>

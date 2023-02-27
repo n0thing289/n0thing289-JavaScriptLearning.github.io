@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         div{
-            width: 1000px;
+            /* width: 1000px; */
             height: 1000px;
         }
     </style>
@@ -29,12 +29,12 @@
                 },
             },
             xAxis:{
-                
-                type:'category',
-                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"]
+                type:'value',
+               
             },
             yAxis:{
-                type:'value',
+                type:'category',
+                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"]
             },
             series:[
                 {
@@ -77,6 +77,10 @@
         }
         // 5. 将配置项传给setOption()
         myecharts.setOption(option);
+
+        window.onresize = function(){
+            myecharts.resize();
+        }
     </script>
 </body>
 </html>

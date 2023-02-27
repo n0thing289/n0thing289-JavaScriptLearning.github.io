@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../lib/echarts.min.js"></script>
+    <script src="../lib/jquery.min.js"></script>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        $.get('./data/test.json', function(ret) {
+            console.log(ret);
+            //     var data = [];
+            //     var myecharts = echarts.init(document.querySelector('div'));
+            //     for (var i = 0; i < ret.length; i++) {
+            //         var height = ret[i].height;
+            //         var weight = ret[i].weight;
+            //         data[data.length] = [height, weight]; // 其实可以用push方法
+            //         console.log(data);
+            //     };
+            //     var option = {
+            //         xAxis: {
+            //             type: 'value',
+            //             scale: true,
+            //         },
+            //         yAxis: {
+            //             type: 'value',
+            //             scale: true,
+            //         },
+            //         series: [{
+            //             type: 'scatter',
+            //             name: '身高体重',
+            //             data: data, // 当xy轴都设置了value类型,那么会自动在系列中去找值,每个一位数组就是一个点,一维数组的第一个是x,第二个是y
+            //         }],
+            //     };
+            //     myecharts.setOption(option);
+        });
+
+        // var data = [];
+
+
+        //     for(var i=0;i<ret.length;i++){
+        //     var height = ret[i].height;
+        //     var weight = ret[i].weight;
+        //     data[data.length] = [height, weight];// 其实可以用push方法
+        //     console.log(data);
+        //     };
+        //     var option = {
+        //         xAxis:{
+        //             type:'value',
+        //             scale:true,
+        //         },
+        //         yAxis:{
+        //             type:'value',
+        //             scale:true,
+        //         },
+        //         series:[
+        //             {
+        //                 type:'scatter',
+        //                 name:'身高体重',
+        //                 data:data,// 当xy轴都设置了value类型,那么会自动在系列中去找值,每个一位数组就是一个点,一维数组的第一个是x,第二个是y
+        //             }
+        //         ],
+        //     };
+        //     myecharts.setOption(option);
+
+
+        //此外还可以设置缩放，摆脱0值比例
+    </script>
+</body>
+
+</html>
