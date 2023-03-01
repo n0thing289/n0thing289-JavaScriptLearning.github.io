@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* width: 800px; */
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <!-- <button id="add">增加数据</button> -->
+    <script src="../lib/echarts.min.js"></script>
+    <!-- <script>
+        var xData = ['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"];;
+        var yData = [88,92,63,77,94,80,72,86];
+
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+            xAxis:{
+                type:'category',
+                data:xData,
+            },
+            yAxis:{
+                type:'value'
+            },
+            series:[
+                {
+                    type:'bar',
+                    data:yData,
+                }
+            ],
+        };
+
+        var addBtn = document.querySelector('#add');
+        addBtn.addEventListener('click', function(){
+            var x = prompt("name:");
+            var y = prompt("value:");
+            xData.push(x);
+            yData.push(y);
+            option.xAxis = {
+                data:xData,
+            };
+            option.series = [
+                {
+                    data:yData,
+                }
+            ];
+
+            myecharts.setOption(option);
+        });
+        myecharts.setOption(option);
+
+        window.addEventListener('resize', function(){
+            console.log("yes");
+            myecharts.resize();
+        })
+    </script> -->
+    <script>
+  
+        var myecharts = echarts.init(document.querySelector('div'));
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ];
+        var option = {
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                }
+            ],
+            legend:{
+                data:['淘宝','京东','唯品会','1号店','聚美优品']
+            }
+        };
+        // 数据准备和坐标轴不同
+        myecharts.setOption(option);
+        myecharts.on('click', function(arg){
+            console.log('click');
+            console.log(arg);
+        }) // 对在图表中的点击事件进行监听
+
+        //对图表事件监听
+        myecharts.on('legendselectchanged', function(arg){
+            console.log('legendselectchanged');
+            console.log(arg);
+        });
+    </script>
+</body>
+</html>

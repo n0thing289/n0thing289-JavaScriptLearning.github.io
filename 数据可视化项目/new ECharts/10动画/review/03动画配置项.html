@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var xData = ['张三',"李四","王五","闰土","小明","茅台","二妞","托莉雅"];
+        var yData = [88,92,63,77,94,80,72,86];
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+            animation:true,
+            animationDuration:function(re){
+                console.log(re);
+                return 1000 * re;
+            },
+            animationEasing:'bounceOut',
+            animationThreshold:7,
+            xAxis:{
+                type:'category',
+                dada:xData,
+            },
+            yAxis:{type:'value'},
+            series:[
+                {
+                    type:'bar',
+                    data:yData,
+                    markPoint:{
+                        data:[
+                        {
+                            type:'max'
+                        },
+                        {
+                            type:'min'
+                        }]
+                    },   
+                    markLine:{
+                            data:[
+                            {
+                                type:'average'
+                            }
+                            ]
+                        }   
+                },
+            ]
+     
+        }
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>
