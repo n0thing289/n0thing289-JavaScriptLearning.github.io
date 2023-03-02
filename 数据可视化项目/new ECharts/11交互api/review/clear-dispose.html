@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button id="clear">clear</button>
+    <button id="dispose">dispose</button>
+    <button id="reset">reset</button>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ];
+        var myecharts = echarts.init(document.querySelector('div'));       
+        var option = {
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                }
+            ]
+        };
+        myecharts.setOption(option);
+
+        var clearBtn = document.querySelector('#clear');
+        var disposeBtn = document.querySelector('#dispose');
+        var resetBtn = document.querySelector('#reset');
+        clearBtn.addEventListener('click', function(){
+            myecharts.clear();
+        });
+        disposeBtn.addEventListener('click', function(){
+            myecharts.dispose();
+        });
+        resetBtn.addEventListener('click', function(){
+            myecharts.setOption(option);
+        });
+        
+    </script> 
+</body>
+</html>

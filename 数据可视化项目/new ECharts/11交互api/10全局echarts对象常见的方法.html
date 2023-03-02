@@ -28,27 +28,8 @@
         // 4. 书写配置项
         var xData = ['张三', "李四", "王五", "闰土", "小明", "茅台", "二妞", "阿尔托莉雅"];
         var yData = [88, 92, 63, 77, 94, 80, 72, 86];
-        var option = {
-                // 动画开启
-                animation: true,
-                //动画时长
-                // animationDuration: 7000, //ms为单位
-                animationDuration: function(arg) {
-                    console.log(arg);
-                    return 2000 * arg;
-                },
-                //动画效果
-                animationEasing: 'bounceOut', // 'linear'
-                // 阈值
-                animationThreshold: 8, // 单种形式的元素数量大于这个阈值时会关闭
-                title: {
-                    text: '期末语文成绩',
-                    textStyle: {
-                        color: 'red',
-                    },
-                },
+        var option = {       
                 xAxis: {
-
                     type: 'category',
                     data: xData,
                 },
@@ -58,35 +39,6 @@
                 series: [{
                     name: "期末语文成绩",
                     type: 'bar',
-                    // 柱状图的常用效果-最大值和最小值
-                    markPoint: {
-                        data: [{
-                            type: 'max',
-                            name: '最大值',
-                        }, {
-                            type: 'min',
-                            name: '最小值',
-                        }]
-                    },
-                    // 柱状图常用效果-平均线
-                    markLine: {
-                        data: [{
-                            type: 'average',
-                            name: '平均值'
-                        }]
-                    },
-                    // 柱状图常用效果-数值显示 :显示每个人的value
-                    label: {
-                        show: true,
-                        rotate: 60, //显示的内容旋转
-                        //position,默认 'inside'
-                        position: 'top',
-
-                    },
-                    // 柱状图常用效果-柱宽度
-                    barWidth: '30%',
-                    // 柱状图常用效果- 横向柱状图(将两个轴对调)
-
                     data: yData,
                 }]
             }

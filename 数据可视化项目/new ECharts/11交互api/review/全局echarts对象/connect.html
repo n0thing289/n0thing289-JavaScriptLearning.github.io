@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <script src="../../../lib/echarts.min.js"></script>
+    <script>
+        var xData = ['张三', "李四", "王五", "闰土", "小明", "茅台", "二妞", "阿尔托莉雅"];
+        var yData = [88, 92, 63, 77, 94, 80, 72, 86];
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ];
+        function f1(){
+            var myecharts = echarts.init(document.querySelector('#one'));
+            var option = {
+                toolbox:{
+                    feature:{
+                        saveAsImage:{},
+                    }
+                },
+                xAxis:{
+                    type:'category',
+                    data:xData,
+                },
+                yAxis:{
+                    type:'value',
+                },
+                series:[
+                    {
+                        type:'bar',
+                        data:yData,
+                    }
+                ]
+            };
+            myecharts.setOption(option);
+        
+        
+            var mecharts = echarts.init(document.querySelector('#two'));
+            var option2 = {
+                series:[
+                    {
+                        type:'pie',
+                        data:pieData,
+                    }
+                ]
+            };
+            mecharts.setOption(option2);
+            echarts.connect([myecharts, mecharts]);
+        };
+        f1();
+    </script>
+</body>
+</html>
