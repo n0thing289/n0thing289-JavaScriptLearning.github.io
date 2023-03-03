@@ -9,16 +9,13 @@
         div{
             width: 800px;
             height: 800px;
-            border:1px solid #ccc;
         }
     </style>
 </head>
 <body>
-    <div>
-
-    </div>
-    <script src="../lib/echarts.min.js"></script>
-    <script src="../lib/jquery.min.js"></script>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
     <script>
         var airData = [
         { name: '北京', value: 39.92 },
@@ -57,61 +54,44 @@
         { name: '澳门', value: 77 },
         { name: '南海诸岛', value: 55 }
     ]
-        
-        var scatterData = [
-            {
-                value:[117.283042, 31.86119],
-            }
-        ]
-        // 1. 给series增加新的对象
-        
-
-        var  myecharts = echarts.init(document.querySelector('div'));
-        $.get('json/map/china.json', function(ret){// 用Ajax获取矢量数据,将获取的矢量数据传入回调函数的形参ret
+        var myecharts = echarts.init(document.querySelector('div'));
+        $.get('../json/map/china.json', function(ret){
             console.log(ret);
-            echarts.registerMap('chinaMap', ret)// 在Ajax get的回调函数中去用echarts注册方法(第一个参数是命名为什么,第二个参数是传入json数据)
+            echarts.registerMap('chinaMap', ret);
             var option = {
                 geo:{
-                    type:'map',// 类型是地图
-                    map:'chinaMap',// 指定你注册的那个地图(要和register第一个参数保持一致)
+                    type:'map',
+                    map:'chinaMap',
                     // 常用效果
-                    roam:true, //1 允许缩放及拖动
+                    roam:true,
                     label:{
-                        show:true,//2 展示标签(名称)
-
+                        show:true,
                     },
-                    // zoom:1, // 设置初始化缩放比例,默认是1
-                    // center:[] // 设置地图中心点(输入某城市坐标, 第一个元素是x,第二个元素是y,然后将这个城市居中显示)
+                    zoom:1,
+                    center:[113.54909, 22.198951],
                 },
                 series:[
                     {
                         type:'map',
                         geoIndex:0,
                         data:airData,
-                    },
-                    {
-                        type:'effectScatter',
-                        data:scatterData,
-                        coordinateSystem:'geo',// 指明散点用的坐标系统是地图坐标系统(经纬度)
-                        rippleEffect:{
-                            scale:10,  // 设置涟漪动画的半径
-                        }
                     }
-                ] ,
+                ],
                 visualMap:{
                     min:0,
                     max:300,
                     inRange:{
-                        color:['white', 'red'],
-                    },  
+                        color:['white', 'red']
+                    },
                     calculable:true,
-                }
-                
+                },
             };
             myecharts.setOption(option);
-        })
-        // extra: vscode编写要用到 live Server 插件右键打开
-        
+
+            myecharts.on('click', function(re){
+                console.log(re);
+            })
+        });
     </script>
 </body>
 </html>
