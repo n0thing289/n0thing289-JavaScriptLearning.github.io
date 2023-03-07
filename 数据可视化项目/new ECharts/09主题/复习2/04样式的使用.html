@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        var pieData = [
+            {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+                itemStyle:{
+                    color:'pink',
+                },
+                label:{
+                    color:'green',
+                }
+            },
+            {
+                name:'唯品会',
+                value:6123,
+                emphasis:{
+                        itemStyle:{
+                        color:'pink',
+                    },
+                    label:{
+                        color:'green',
+                    }
+                }
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ]
+        var option = {
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                }
+            ],
+        };
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

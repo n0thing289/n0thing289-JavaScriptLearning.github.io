@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/theme/purple-passion.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'),'purple-passion');
+        var option = {
+            xAxis:{
+                type:'category',
+                data:['张三',"李四","王五","闰土","小明","茅台","二妞","阿尔托莉雅"],
+
+            },
+            yAxis:{
+                type:'value',
+            },
+            series:[
+                {
+                    type:'bar',
+                    data:[88,92,63,77,94,80,72,86],
+                }
+            ]
+        }
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/theme/purple-passion.js"></script>
+
+    <script>
+        var pieData = [
+        {
+                name:'淘宝',
+                value:11231,
+            },
+            {
+                name:'京东',
+                value:22673,
+            },
+            {
+                name:'唯品会',
+                value:6123,
+            },
+            {
+                name:'1号店',
+                value:8989,
+
+            },
+            {
+                name:'聚美优品',
+                value:8000,
+            }
+        ]
+        var myecharts = echarts.init(document.querySelector('div'));
+        var option = {
+        //     color:[// 全局调色盘在option中进行设置,调色盘遵守就近原则离setOption()越近,远的会被覆盖
+            // "#9b8bba",
+            // "#e098c7",
+            // "#8fd3e8",
+            // "#71669e",
+            // "#cc70af",
+            // "#7cb4cc"
+        // ],
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                    color:[// 局部调色盘在series中的color属性进行设置
+                        "#9b8bba",
+                        "#e098c7",
+                        "#8fd3e8",
+                        "#71669e",
+                        "#cc70af",
+                        "#7cb4cc"
+                    ],
+                }
+            ]
+        };
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

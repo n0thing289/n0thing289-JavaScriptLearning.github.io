@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
+    
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        myecharts.showLoading();
+        $.get('../data/test.json', function(ret){
+            myecharts.hideLoading();
+            console.log(ret);
+            var data = [];
+            for (var i = 0; i < ret.length; i++) {
+                var height = ret[i].height;
+                var weight = ret[i].weight;
+                data[data.length] = [height, weight]; // 其实可以用push方法
+                console.log(data);
+            };
+            
+            
+            var option = {
+                xAxis: {
+                    type: 'value',
+                    scale: true,
+                },
+                yAxis: {
+                    type: 'value',
+                    scale: true,
+                },
+                series:{
+                    type:'scatter',
+                    data:data,
+                }
+            };
+            myecharts.setOption(option);
+        })
+    </script>
+</body>
+</html>
