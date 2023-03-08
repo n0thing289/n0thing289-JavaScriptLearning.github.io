@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="pie"></div>
+    <div id="scatter"></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('#pie'));
+        
+        var pieData = [
+            {
+                name:'jd', value:100,
+            },
+            {
+                name:'TM', value:90,
+            },
+            {
+                name:'wph', value:70,
+            },
+            {
+                name:'dw',value:120,
+            },
+            {
+                name:'pdd', value:200,
+            }
+        ]
+        
+        var pieOption = {
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                }
+            ],
+            legend:{
+                show:true,
+            }
+        }
+        myecharts.setOption(pieOption);
+
+        var myecharts02 = echarts.init(document.querySelector('#scatter'));
+
+        $.get('./test.json', function(ret){
+            console.log(ret);
+            var scatterData = [];
+            for(var i =0;i<ret.length;i++){
+                var height = ret[i].height;
+                var weight = ret[i].weight;
+                scatterData.push([height, weight]);
+            }
+            var scatterOption = {
+                xAxis:{
+                    type:'value',
+                    scale:true,
+                },
+                yAxis:{
+                    type:'value',
+                    scale:true,
+                },
+                series:[
+                    {
+                        type:'scatter',
+                        data:scatterData,
+                    }
+                ],
+                // 增加工具
+                toolbox:{
+                    feature:{
+                        saveAsImage:{},
+                    }
+                }
+            }
+            myecharts02.setOption(scatterOption);
+
+            echarts.connect([myecharts, myecharts02]);
+        })
+    </script>
+</body>
+</html>
