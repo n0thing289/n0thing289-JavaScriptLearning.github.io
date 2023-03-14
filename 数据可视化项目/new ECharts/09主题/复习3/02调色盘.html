@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/theme/purple-passion.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'),'purple-passion');// 全局调色盘
+        var pieData = [
+            {
+                name:'a',value:100
+            },
+            {
+                name:'c',value:90
+            },{
+                name:'d',value:100
+            },{
+                name:'e',value:60
+            },{
+                name:'f',value:100
+            },
+        ]
+        var option = {
+            // 全局调色盘
+            color:['white', 'red','blue'],
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                    color:['blue', 'red','white',],
+                }
+            ]
+        };
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>

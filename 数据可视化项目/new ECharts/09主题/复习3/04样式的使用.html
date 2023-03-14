@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script src="../../lib/theme/purple-passion.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'),'purple-passion');
+        var pieData = [
+            {
+                name:'a',value:100,
+                itemStyle:{
+                    color:'red',
+                },
+                label:{
+                    show:true,
+                    color:'green',
+                }
+            },
+            {
+                name:'c',value:90,
+                emphasis:{
+                        itemStyle:{
+                        color:'red',
+                    },
+                    label:{
+                        show:true,
+                        color:'green',
+                    }
+                }
+            },{
+                name:'d',value:100
+            },{
+                name:'e',value:60
+            },{
+                name:'f',value:100
+            },
+        ]
+        var option = {
+            
+            series:[
+                {
+                    type:'pie',
+                    data:pieData,
+                }
+            ]
+        };
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>
