@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script src="../../lib/echarts.min.js"></script>
+    <script>
+        var myecharts = echarts.init(document.querySelector('div'));
+        var indicator = [
+            {
+                name:'A', max:100,
+            },
+            {
+                name:'B', max:100,
+            },
+            {
+                name:'C', max:100,
+            },
+            {
+                name:'D', max:100,
+            },
+            {
+                name:'E', max:100,
+            }
+        ];
+        var option = {
+            radar:{
+                indicator:indicator,
+            },
+            series:[
+                {
+                    type:'radar',
+                    data:[
+                        {
+                            name:'1',value:[90,80,70,60,50,40],
+                        }
+                    ]
+                        
+                },
+
+            ]
+        }
+        myecharts.setOption(option);
+    </script>
+</body>
+</html>
