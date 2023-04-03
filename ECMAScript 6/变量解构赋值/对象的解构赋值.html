@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 基本使用(取对象的属性值)
+        //let {key值,key值} = 对象名
+        let obj = {
+            name: 'kerwin',
+            age: 100,
+        }
+
+        let {
+            // name,
+            age
+        } = obj;
+        console.log(name, age);
+
+        //1.2.1 不想出现重名问题可以多加一个:
+        //1.2.2 增加默认值
+        //1.2.3 嵌套取值
+        let code = "AAA";
+        let res = {
+            code: 200,
+            data: "1111111",
+            Ndata: {
+                list: ["aaa", "bbb", "ccc"]
+            }
+        }
+
+        let {
+            data,
+            code: co,
+            err = "没有错误", //原本这里后端是要穿错误的,如果没有err会输出undefined,所以来个默认值
+            Ndata: { //嵌套取值
+                list: [x, y, z]
+            }
+        } = res;
+        console.log(data, co, err, x);
+    </script>
+</body>
+
+</html>

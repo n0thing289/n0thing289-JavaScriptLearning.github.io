@@ -10,6 +10,14 @@
 
 <body>
     <script>
+        //1. 声明变量
+        let n1 = 10;
+        if (true) {
+            let n1 = 20;
+            console.log("if n1 = " + n1);
+        }
+        console.log("n1 = " + n1);
+        //2. 用于循环
         // var a = [];
         // for (var i = 0; i < 10; i++) {
         //     a[i] = function() {
@@ -26,16 +34,18 @@
         // }
         // a[0](); // 6
 
+        //3. let变量用于for循环时，有父级作用域和子作用域的区别
         // for(var i =0;i<3;i++){
         //     var i = 'abc';
         //     console.log(i);
         // }
 
-        
+        //细节：
+        //1.1
         // var n1 = 10;
         // var n1 = 0;
         // console.log(n1);
-
+        //1.2
         // 变量提升
         // console.log(n2);
         // var n2 = 2;

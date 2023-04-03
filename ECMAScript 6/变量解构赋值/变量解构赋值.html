@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 基本使用
+        let arr = [1, 2, 3];
+
+        let [a, b, c] = arr;
+
+        //1.1 交换变量使用
+        let x = 1;
+        let y = 2;
+        [y, x] = [x, y];
+        // console.log("x = " + x + " y = " + y);
+
+        //1.2.1  拿取部分数据
+        let arr2 = [1, 2, 3];
+        let [, , a2] = arr;
+        // console.log(a2);
+        //1.2.2
+        let arr3 = [1, [2, 3, 4], 5, 6];
+        let [, [a3, , ], , ] = arr3;
+        console.log(a3);
+
+        //1.3  初始化一个x默认值,如果右边有值就会被覆盖
+        let [x2 = 1] = [];
+        console.log(x2);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+    <script>
+        let name = "kinwer";
+        let oli = `<li>
+                <b>${name}</b>
+            </li>`;
+
+        console.log(oli);
+
+        let arr = ["tiechui", "kinwer", "gandan"];
+
+        //1.?
+        let newList = arr.map(function(item, index) {
+            return `<li class="${index == 0?'active':''}">
+                    <b>${item}</b>
+                </li>`
+        });
+
+        console.log(newList);
+
+        let ul = document.querySelector('ul');
+        //2. ?
+        ul.innerHTML = newList.join("");
+    </script>
+</body>
+
+</html>
