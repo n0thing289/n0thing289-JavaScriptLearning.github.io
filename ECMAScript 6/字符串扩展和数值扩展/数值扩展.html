@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 支持二进制八进制的写法
+        // let num1 = 100;
+        // let num2 = 0x100;
+        // let num3 = 0b100;
+        // let num4 = 0o100;
+
+        // console.log(num1);
+        // console.log(num2);
+        // console.log(num3);
+        // console.log(num4);
+
+        //2. Number.isFinite  Number.isNaN
+        //  之前是属于Window顶级对象的方法, 可以省略Window的写法.但是现在ES6归到Number对象中了
+        //  但是为了兼容之前的省略写法, 现在写不写Number 
+        //细节: 
+        //      Window的isFinite isNaN 会先尝试能不能转换成数字, 然后再判断
+        //      而Number的isFinite isNaN 是直接判断
+        // let num11 = Number.isFinite(100);
+        // let num22 = Number.isFinite(100/0);
+        // let num33 = Number.isFinite(Infinity);
+        // let num44 = Number.isFinite("100");// 这里如果是Window的, 结果是true
+
+        // console.log(num11);
+        // console.log(num22);
+        // console.log(num33);
+        // console.log(num44);
+
+        // let num111 = Number.isNaN(100);
+        // let num222 = Number.isNaN(NaN);
+        // let num333 = Number.isNaN("kerwin");
+        // let num444 = Number.isNaN("100");
+
+        // console.log(num111);
+        // console.log(num222);
+        // console.log(num333);
+        // console.log(num444);
+
+        //3. isInteger
+        //细节:
+        //      100.0也算整型(和java不太一样)
+        // let num1 = Number.isInteger(100);
+        // let num2 = Number.isInteger(100.0);
+        // let num3 = Number.isInteger("kerwin");
+        // let num4 = Number.isInteger("100");
+
+        // console.log(num1);
+        // console.log(num2);
+        // console.log(num3);
+        // console.log(num4);
+
+        //4. 极小常量 Number.EPSILON
+        //使用场景: 因为计算机算小数是由误差的, 用极小常量就可以衡量这个误差在不在误差范围内
+        // console.log(Number.EPSILON);
+        // function isEqual(x , y){
+        //     return Math.abs(x-y) < Number.EPSILON;
+        // }
+        // console.log(isEqual(0.1 + 0.2, 0.3));
+
+        //5. Math.trunc
+        //抹去小数部分, 返回整数
+        // console.log(Math.trunc(1.2));
+        // console.log(Math.trunc(1.8));
+        // console.log(Math.trunc(-1.8));
+        // console.log(Math.trunc(-1.2));
+
+        //6. Math.sign
+        //判断一个数到底是正数,负数,还是零. 对于非数值会先尝试转换为数值
+        //返回 +1 -1 0
+        console.log(Math.sign(-100));
+        console.log(Math.sign(100));
+        console.log(Math.sign(0));
+        console.log(Math.sign(-0));
+        console.log(Math.sign("kerwin"));
+
+        
+    </script>
+</body>
+</html>
