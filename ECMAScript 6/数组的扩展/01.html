@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+
+    <script>
+        //1. ...
+        // let arr = [1, 2, 3];
+
+        // let arr2 = arr.concat();
+        // let arr2 = [...arr];//1. 把框破掉，一个一个放进来 2. 只能破一级，如果还想再破引用类型，那就涉及深复制-递归解决
+        // arr2.pop();
+        // console.log(arr2);
+
+        //1.2 合并一个数组
+        // let arr2 = [4, 5, 6];
+        // console.log([...arr, ...arr2]);
+        // //1.3
+        // let myarr = [1, 2, 3, 4, 5, 6, 7, 8];
+        // let [a, b, ...c] = myarr; //...不能放最前
+        // console.log(a, b, c);
+
+        //2. Array.from 把类似于数组的结构转化为真正的数组(数组方法)
+        /*
+        arguments, node节点nodelist是伪数组
+        */
+        // function test() {
+        //     // console.log(arguments.map());
+        //     // console.log(arguments.filter);
+        //     console.log(Array.from(arguments));
+        // }
+
+
+        // let lis = document.querySelectorAll("li");
+        // console.log(lis);
+        // Array.from(lis).map(function(){
+
+        // });
+
+        //3. Array.of 重新生成一个数组
+
+        // let arr = [1,2,3];
+        // let arr1 = Array(3);//传一个参数,得到长度为3元素都是空的数组
+        // let arr2 = Array.of(3);//传一个,就得到一个元素为3的数组
+
+
+        //4. 对象方法: find findIndex() 将找到的第一个返回
+        // let arr = [11, 12, 13, 14, 15];
+        // let res = arr.find(function(item) {
+        //     return item > 13;
+        // });
+        // console.log(res);
+
+        // let res = arr.findLast(function(item) {
+        //     return item > 13;
+        // });
+        // console.log(res);
+        //findLast findLastIndex() 从后面往前查找 ES2022
+
+        // 5. 对象方法: fill
+        // let arr = new Array(3).fill("kerwin");
+        // console.log(arr);
+        // let arr1 = [11, 22, 33];
+        // console.log(arr1.fill("kerwin", 1, 2));
+
+        //6.对象方法: flat() flatMap()
+        //lodash
+
+        // let arr = [1, 2, 3, [4, 5, 6]];
+
+        // let arr1 = arr.flat();
+        // console.log(arr, arr1);
+        // let arr = [
+        //     ["安庆", "安阳", "鞍山"],
+        //     ["北京", "保定", "包头"],
+        // ];
+        // let arr1 = arr.flat();
+        // console.log(arr1);
+
+        //如果要破复杂的对象进行扁平化,用flatMap(function(){})
+        let arr = [{
+            name: "a",
+            list: ["安庆", "安阳", "鞍山"],
+        }, {
+            name: "b",
+            list: ["北京", "保定", "包头"],
+        }];
+        console.log(arr.flatMap(function(item) {
+            return item.list; //指出我要对里面的每一个list扁平化
+        }));
+    </script>
+</body>
+
+</html>
