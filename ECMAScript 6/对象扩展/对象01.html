@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. 对象简洁
+        // let name = "moduleA";
+        // let obj = {
+        //     name,//等价于 name:name
+        //     test1() {
+
+        //     },
+        //     test2() {
+
+        //     }
+        // };
+
+        //2. 对象属性表达式
+        // let name = "modle";
+        // let obj = {
+        //     [name]:"kerwin",
+
+        //     [name + "1"](){
+
+        //     },
+        //     [name + "2"](){
+
+        //     }
+        // }
+        // console.log(obj);
+
+        //3. 扩展运算符...
+        // let obj = {
+        //     name: "kerwin",
+        // }
+
+        // let obj1 = {
+        //         ...obj
+        //     }
+        //     //赋值对象
+        // console.log(obj1);
+
+        // let obj2 = {
+        //     age: 100,
+        // }
+
+        // let obj3 = {
+        //         name: 'qwwq',
+        //     }
+        //     //合并对象
+        // console.log({...obj,
+        //     ...obj2,
+        //     ...obj3 //重名会覆盖属性
+        // });
+
+
+        //4.合并对象2- Object.assign
+        let obj = {}
+        let obj2 = {
+            name: "kerwin"
+        }
+        let obj3 = {
+            age: 100
+        }
+
+        let obj4 = Object.assign(obj, obj2, obj3); //第一个参数是要合并的目标(如果第一个不是内容为空的对象,会被影响),将后面的合并到前面
+        console.log(obj4);
+
+        //5. Object.is 解决无法判断 NaN === NaN的问题
+    </script>
+</body>
+
+</html>
