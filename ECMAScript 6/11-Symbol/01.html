@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Symbol, 目的和意义用来解决引入库时与自己的属性名冲突重复
+         * 生成了独一无二的数据
+        */
+        //1. 
+        let s1 = Symbol()
+        let s2 = Symbol()
+
+        console.log(s1 === s2)
+        //细节
+        //1. 不能进行运算(加减,逻辑运算符)
+
+        //2. 显示调用toString(s1)
+
+        //3. 隐士转换boolean
+        if(s1){
+            console.log("执行");
+        }
+
+        //使用
+        // let obj = {
+        //     name:"kerwin",
+        // }
+
+        // let name = Symbol()
+
+        // obj[name] = "tiechui"
+
+        // console.log(obj);
+        // console.log(obj[name])
+        // console.log(obj.name)
+
+
+        let keys = {
+            name:Symbol(),
+            age:Symbol(),
+            location:Symbol(),
+            test:Symbol(),
+        }
+        let obj = {
+            [keys.name] : "kerwin",
+            [keys.age]:19,
+            [keys.location]:"dalian",
+            [keys.test]:function(){
+                console.log("执行");
+            }
+        }
+    </script>
+</body>
+</html>
