@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //1.参数默认值（跟python一样，函数参数可以有默认值，后面再传参的时候就覆盖默认值）
-        function ajax(url, method,async){
+        function ajax(url = "111.html", method, async) {
 
         }
         //2. rest剩余参数, (将一串数据收集到一起)
-        function test(x,y,...data){
+        function test(x, y, ...data) {
             console.log(data)
         }
-        test(1,2,3,4,5,6)
+        test(1, 2, 3, 4, 5, 6)
+
         //3. name属性(函数名字属性)
         console.log(test.name);
-
-        
     </script>
 
 </body>
+
 </html>

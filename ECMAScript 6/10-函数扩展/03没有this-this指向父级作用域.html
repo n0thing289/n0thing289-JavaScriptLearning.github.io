@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     模糊搜索:
     <input type="text" id="mysearch">
-    
+
     <script>
-        
         //谁调用我,this就指向谁
         // let osearch = document.querySelector('#mysearch')
-        // osearch.oninput = function(){
+        // osearch.oninput = function() {
         //     // console.log(this.value)
         //     let _this = this
-        //     setTimeout(function(){
-        //         console.log(`发送${_this.value}到后端`)//setTimeout,是内置函数,本质上是window的,this指向window方法,所以在这里打印不出来值
-        //     },1000)
+        //     window.setTimeout(function() {
+        //         console.log(`发送${_this.value}到后端`) //setTimeout,是内置函数,本质上是window的,this指向window方法,所以在这里打印不出来值
+        //     }, 1000)
         // }
 
         let osearch2 = document.querySelector('#mysearch')
-        osearch.oninput = function(){//事件绑定
+        osearch2.oninput = function() { //事件绑定
             // console.log(this.value)
             let _this = this
-            setTimeout(()=>{
-                console.log(`发送${this.value}到后端`)//由于箭头本身不能被this指向,所以会向外找父级作用域的this,,在这里就是指向oninput事件了而不是window
-            },1000)
+            setTimeout(() => {
+                    console.log(`发送${this.value}到后端`) //由于箭头本身不能被this指向,所以会向外找父级作用域的this,,在这里就是指向oninput事件了而不是window
+                }, 1000)
+                /**
+                 * 关于复习时，回调函数中this的指向问题
+                 * 回调函数如果是被普通调用，那么其this指向window。
+                 * 普通调用就是指，这个函数不属于任何自定义对象情况下调用，js引擎会将其this指向window，相当于window的方法
+                 * 记住作用域是{}
+                 */
         }
     </script>
 </body>
+
 </html>

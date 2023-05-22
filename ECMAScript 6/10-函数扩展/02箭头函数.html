@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //1. 基本用法
-        let test = ()=>{
+        let test = () => {
             // console.log("test");
             return 111;
         }
         console.log(test());
         //1.1. 再间接用法
         //当只有return语句的时候可以这样
-        let test1 = ()=>"111111"
+        let test1 = () => "111111"
 
-        let arr = ['aaa','bbb','ccc']
-        let newarr = arr.map((item)=>`${item} + 100`)
-        
+        let arr = ['aaa', 'bbb', 'ccc']
+        let newarr = arr.map((item) => `${item} + 100`)
+        console.log(newarr)
+
         //2. 返回对象要多用一个括号
-        let test2 = ()=>({
-            name:"avc",
-            age:100,
+        let test2 = () => ({
+            name: "avc",
+            age: 100,
         })
         console.log(test2());
 
-        //3. 如果只有一个参数, 可以把形参列表的那个括号也省略
-        let newarr2 = arr.map(item=>`${item} + 100`)
+        //3. 如果只有一个形参, 可以把形参列表的那个括号也省略
+        let newarr2 = arr.map(item => `${item} + 100`)
 
         //4. 无法访问arguments, 无法new 
-        let test3 = ()=>{
-            console.log(arguments)
-        }
-        new test3(1,2,34,)
+        // let test3 = () => {
+        //     console.log(arguments)
+        // }
+        // new test3(1, 2, 34, )
 
         //5. 没有this
     </script>
 </body>
+
 </html>
