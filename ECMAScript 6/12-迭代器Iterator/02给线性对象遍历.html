@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+                0: "keiwin",
+                1: "tiechui",
+                2: "genger",
+                length: 3,
+                [Symbol.iterator]: Array.prototype[Symbol.iterator]
+            }
+            //第一种for of遍历
+            // for (let i of obj) {
+            //     console.log(i);
+            // }
+            //第二种遍历
+            // let item_obj = obj[Symbol.iterator]()
+            // console.log(item_obj.next())
+            // console.log(item_obj.next())
+            // console.log(item_obj.next())
+            // console.log(item_obj.next())
+
+        let obj2 = { //非线性大多采用这种方式埋迭代器, 封装一个私有属性时的库时, 开发者直接调用for of遍历就行
+            name: "kerwin",
+            age: 19,
+            list: ["beijing", "shanghai", "guangzhou"],
+
+            [Symbol.iterator]() {
+                let index = 0;
+                return {
+                    next: () => {
+                        return {
+                            value: this.list[index++],
+                            done: index > this.list.length ? true : false,
+                        }
+                    }
+                }
+            }
+        }
+
+        // for (let i of obj2) {
+        //     console.log(i);
+        // }
+
+
+        //展开运算符其实底层调用了迭代器,自动转成数组(对象展开不是用迭代器)
+        console.log([...obj2]);
+        //...可以代替Array.from()  把类似数组的用... 转成真正的数组
+    </script>
+</body>
+
+</html>

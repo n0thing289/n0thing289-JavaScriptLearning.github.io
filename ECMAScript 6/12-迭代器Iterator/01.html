@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ["a", "b", "c"]
+
+        for (let i of arr) { //of 拿到具体值，in拿到索引值
+            console.log(i);
+        }
+        console.log(arr)
+
+        let item = arr[Symbol.iterator]() // Symbol(Symbol.iterator) 这样写是不能访问迭代器接口
+            //返回迭代器对象
+        console.log(item)
+
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+
+
+        let str = "kerwin";
+        let item_str = str[Symbol.iterator]()
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+        console.log(item.next())
+    </script>
+</body>
+
+</html>
