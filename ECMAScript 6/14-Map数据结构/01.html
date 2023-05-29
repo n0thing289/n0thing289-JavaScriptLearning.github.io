@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 初始化
+        let map01 = new Map([
+            ["name", "kerwin"],
+            ["location", "dalian"],
+            ["age", 100],
+        ])
+        console.log(map01);
+
+        let map02 = new Map()
+        map02.set("name", "kerwin")
+        map02.set("location", "dalian")
+
+        //map内置迭代器
+        for (const i of map01) {
+            console.log(i);
+        }
+        console.log([...map01]);
+
+        //2. 属性和实例方法
+        //get
+        // console.log(map01.get("name"));
+        // //delete
+        // map01.delete("name")
+        // console.log(map01);
+        // //has
+        // console.log(map01.has("name"));
+        // //size
+        // console.log(map01.size);
+        // //clear
+        // map01.clear()
+        // console.log(map01);
+
+        //3. 遍历keys(), values(), entries(), for of foreach
+        map01.forEach((item,index) =>{//foreach第一个参数是value，第二个参数是key
+            console.log(index, item);
+        })
+    </script>
+</body>
+</html>
