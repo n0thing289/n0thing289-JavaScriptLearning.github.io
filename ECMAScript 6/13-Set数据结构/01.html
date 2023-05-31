@@ -8,13 +8,13 @@
 </head>
 <body>
     <script>
-        //1. 数组去重
+        //1. 初始化
         let s1 = new Set([1,2,3,4,4])
         // console.log(s1);
-        // console.log([...s1]);//...可以对实现了iteraltor接口使用
+        // console.log([...s1]); //...可以对实现了iteraltor接口使用
         // console.log(Array.from(s1));
 
-        //2.  
+        //1.  
         let s2 = new Set();
         // s2.add(1)
         // s2.add(2)
@@ -22,11 +22,10 @@
         // s2.add(3)
         // console.log(s2);
 
-        // for (const i of s1) {
-        //     console.log(i);
-        // }
+        
+       
 
-        //3. 属性和方法
+        //2. 属性和方法
         // console.log(s1.size);
         // s1.add(5).add(6)
         // console.log(s1.has(5));
@@ -34,6 +33,10 @@
         // console.log(s1.has(5));
         // s1.clear()
 
+        //3. 迭代器遍历 
+        for (const i of s1) {
+            console.log(i);
+        }
         // for of
         // Sets数据结构， 有键名和键值，只不过一样;数组也有键名和键值，键名是索引，键值就是内容
         for (let i of s1) {

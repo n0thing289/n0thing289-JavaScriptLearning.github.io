@@ -41,9 +41,32 @@
         // console.log(map01);
 
         //3. 遍历keys(), values(), entries(), for of foreach
-        map01.forEach((item,index) =>{//foreach第一个参数是value，第二个参数是key
+        map01.forEach((item,index) => {//foreach第一个参数是value，第二个参数是key
             console.log(index, item);
         })
+        //3.2迭代器遍历键
+        console.log(map01.keys());
+        let mapKeyIterator = map01.keys()
+        let key;
+        while((key = mapKeyIterator.next()).done != true){
+            console.log(key.value, map01.get(key.value));
+        }
+        console.log(mapKeyIterator.next());
+        console.log(mapKeyIterator.next());
+        console.log(mapKeyIterator.next());
+        console.log(mapKeyIterator.next());
+        
+        //3.3迭代器遍历值
+        console.log(map01.values());
+        let mapValueIterator = map01.values()
+        let value;
+        while((value = mapValueIterator.next()).done != true){
+            console.log(value.value)
+        }
+        console.log(mapValueIterator.next());
+        console.log(mapValueIterator.next());
+        console.log(mapValueIterator.next());
+        console.log(mapValueIterator.next());
     </script>
 </body>
 </html>
