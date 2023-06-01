@@ -25,7 +25,7 @@
         
        
 
-        //2. 属性和方法
+        //2. 属性和方法（add delete has size clear）
         // console.log(s1.size);
         // s1.add(5).add(6)
         // console.log(s1.has(5));
@@ -34,23 +34,47 @@
         // s1.clear()
 
         //3. 迭代器遍历 
-        for (const i of s1) {
-            console.log(i);
-        }
         // for of
         // Sets数据结构， 有键名和键值，只不过一样;数组也有键名和键值，键名是索引，键值就是内容
-        for (let i of s1) {
-            console.log(i);
+        // for (let i of s1) {
+        //     console.log(i);
+        // }
+
+       
+        //迭代器遍历键
+        console.log(s1.keys());
+        let setKeyIterator = s1.keys();
+        let key;
+        while((key = setKeyIterator.next()).done != true){//next() 返回一个对象{value：any , done：boolean}
+            console.log(key.value);
         }
-        for (let i of s1.keys()) {
-            console.log(i);
+         // for (let i of s1.keys()) {
+        //     console.log(i);
+        // }
+        
+        //迭代器遍历值
+        console.log(s1.values())
+        let setValueIterator = s1.values()
+        let value;
+        while((value = setValueIterator.next()).done != true){//next() 返回一个对象{value：any , done：boolean}
+            console.log(value.value)
         }
-        for (let i of s1.values()) {
-            console.log(i);
+        // for (let i of s1.values()) {
+        //     console.log(i);
+        // }
+
+        //迭代器遍历键值
+        console.log(s1.entries());
+        let setEntriesIterator = s1.entries()
+        let entries;
+        while((entries = setEntriesIterator.next()).done != true){//这里的next() 方法返回entries对象{value:[key, value], done:boolean}
+            let key = entries.value[0];
+            let value = entries.value[1];
+            console.log(key, value)
         }
-        for (let i of s1.entries()) {//entries() 返回数组
-            console.log(i);
-        }
+        // for (let i of s1.entries()) {//entries() 返回数组
+        //     console.log(i);
+        // }
 
         for (let [index, item] of ["11","22","33"].entries()) {
             console.log(index, item);
