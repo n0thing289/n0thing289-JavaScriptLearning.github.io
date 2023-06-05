@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let s = new Set()
+        let proxy = new Proxy(s, {
+            get(target, key) {
+                let value = target[key]
+                if (value instanceof Function) {
+                    return value.bind(target) // 当proxy调用方法时,改变this指向
+                }
+                return target[key]
+            },
+            set(target, key, value) {
+                console.log(target, key, value);
+                // target.add = value
+                target.add()
+            }
+        })
+
+        //意思就是，proxy遇到要调用方法的时候，proxy本身没有，所以要去target也就是set里找自带方法才能去调用add（）什么的
+    </script>
+</body>
+
+</html>

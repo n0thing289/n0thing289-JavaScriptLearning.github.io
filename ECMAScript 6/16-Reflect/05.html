@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3]
+        let proxy = new Proxy(arr, {
+            get(target, key){
+                console.log("get " + target + " " + key)
+                let b = Reflect.get(...arguments)
+                console.log("get-b: " + b);
+                return b
+            },
+            set(target, key,value){
+                console.log("set " + target + " " + key+" " + value)
+                let b = Reflect.set(...arguments)
+                console.log("set-b: " + b);
+                return b
+            }
+        })
+    </script>
+</body>
+</html>

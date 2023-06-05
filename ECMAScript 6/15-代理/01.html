@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let obj = {}
+            //响应式框架的部分原理
+        Object.defineProperty(obj, "data", {
+            get() {
+                console.log("get");
+                return box.innerHTML
+            },
+            set(value) {
+                console.log("set", value);
+                box.innerHTML = value;
+            }
+        })
+
+        //vue3 替换成了Proxy 因为前者不能拦截很多数据，很
+    </script>
+</body>
+
+</html>

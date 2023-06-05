@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let obj = {}
+        let proxy = new Proxy(obj, {
+                get(target, key) {
+                    console.log("get");
+                    return target[key]
+                },
+                set(target, key, value) { //拦截到后, 系统会自动传三个参数(源对象, key, value)到这个方法中
+                    console.log("set");
+                    // target[key] = value;
+                    //在真正赋值之前可以做点事
+                    if (key == "data") {
+                        box.innerHTML = value;
+                    }
+                    target[key] = value;
+                },
+                has() { //只能在代理对象中判断有误某个属性
+                    return false;
+                }
+            })
+            //经纪人
+            //不能直接obj.a， 要用创建了的代理对象去代理对象.a = ... 
+            //就可以被拦截到所有属性(之前的只能一个属性一个拦截)
+    </script>
+</body>
+
+</html>
