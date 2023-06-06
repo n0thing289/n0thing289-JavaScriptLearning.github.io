@@ -76,9 +76,25 @@
         //     console.log(i);
         // }
 
+        /*
+            for of 取出的就是对象的value属性的值，
+        */
+
         for (let [index, item] of ["11","22","33"].entries()) {
             console.log(index, item);
         }
+
+        /*底层分析
+            ["11","22","33"].entries() 返回
+                entries对象{value: [0,"11"], done: false}
+                entries对象{value: [1,"22"], done: false}
+                entries对象{value: [2,"33"], done: true}
+
+            of 右边就相当于取出了value属性的内容 [0,"11"] [1, "22"] [2, "33"]
+            
+            [index, item] =  [0,"11"]
+            以此类推...
+        */
 
         s1.forEach((index, item) => {
             console.log(index,item);

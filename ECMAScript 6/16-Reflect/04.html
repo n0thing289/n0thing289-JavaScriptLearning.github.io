@@ -14,7 +14,7 @@
         // Reflect.set(obj, "name", "hwk")
         // console.log(Reflect.get(obj, "name"))
 
-        let s = Set()
+        let s = new Set()
         let proxy = new Proxy(s, {
             get(target, key){
                 let value = Reflect.get(target, key)
