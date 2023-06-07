@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function ajax(ajax, successcd, failcb) {
+            setTimeout(() => {
+                successcd("111");
+            }, 1000)
+        }
+        ajax("/aaa", function(data) {
+            console.log(data);
+            ajax("/aaa", function(data) {
+                console.log(data);
+                ajax("/aaa", function(data) {
+                    console.log(data);
+                }, function(data) {
+
+                })
+            }, function(data) {
+
+            })
+        }, function(data) {
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let pro = new Promise(function(resolve, reject) {
+            //执行器函数
+            setTimeout(() => {
+                // resolve(100)
+                reject("没钱")
+            }, 1000)
+        })
+
+        //第一种写法
+        // pro.then(() => {
+        //     console.log("奖金");
+        // }, () => {
+        //     console.log("没有");
+        // })
+        //第二种写法
+        pro.then((res) => {
+            console.log("奖金", res);
+        }).catch((reason) => {
+            console.log("没有", reason);
+        })
+
+        //细节:
+        /*
+            1. 三种状态: pending,fulfilled,rejected
+            2. pending -> fulfilled , pending -> rejected
+            3. 状态只能变一次,变为就凝固不再变化,因此先写resolve()再写reject(),没有影响
+        */
+    </script>
+</body>
+
+</html>
