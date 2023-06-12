@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            异步编程解决方案
+            状态机，封装了很多状态，next（）就便利一个状态
+        */
+        function *gen(){
+            
+            let res1 = yield "aaa"
+            console.log("gen内部： "+res1);
+            
+            let res2 = yield "bbb"
+            console.log("gen内部: " + res2);
+            return "ccc"//
+        }
+        
+        let g = gen()
+        let res01 = g.next("传入-11111");//第一个next的传参无意义，遇到yield就停，相当于不会赋值
+        console.log(res01);
+        let res02 = g.next("传入-22222");//第二个next传参时，会将参数传入到上次暂停的位置，然后赋值给变量
+        console.log(res02);
+        let res03 = g.next("传入-33333");
+        console.log(res03);
+
+        // for (let i of g) {
+        //     console.log(i);            
+        // }
+    </script>
+</body>
+</html>

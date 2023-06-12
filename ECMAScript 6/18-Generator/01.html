@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            异步编程解决方案
+            状态机，封装了很多状态，next（）就便利一个状态
+        */
+        function *gen(){
+            console.log(11);
+            yield
+            console.log(22);
+            yield
+            console.log(33);
+        }
+        //返回迭代器对象
+        //调用next才开始执行，遇到yield就暂停，除非再次next（）；
+        let g = gen()
+        g.next();
+        g.next();
+        g.next();
+    </script>
+</body>
+</html>
