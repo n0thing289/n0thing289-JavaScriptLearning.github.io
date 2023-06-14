@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //1. 初始化
-        let s1 = new Set([1,2,3,4,4])
-        // console.log(s1);
-        // console.log([...s1]); //...可以对实现了iteraltor接口使用
-        // console.log(Array.from(s1));
+        let s1 = new Set([1, 2, 3, 4, 4])
+            // console.log(s1);
+            // console.log(s1);
+            // console.log([...s1]); //...可以对实现了iteraltor接口使用
+            // console.log(Array.from(s1));
 
         //1.  
         let s2 = new Set();
@@ -22,8 +25,8 @@
         // s2.add(3)
         // console.log(s2);
 
-        
-       
+
+
 
         //2. 属性和方法（add delete has size clear）
         // console.log(s1.size);
@@ -40,23 +43,23 @@
         //     console.log(i);
         // }
 
-       
+
         //迭代器遍历键
         console.log(s1.keys());
         let setKeyIterator = s1.keys();
         let key;
-        while((key = setKeyIterator.next()).done != true){//next() 返回一个对象{value：any , done：boolean}
+        while ((key = setKeyIterator.next()).done != true) { //next() 返回一个对象{value：any , done：boolean}
             console.log(key.value);
         }
-         // for (let i of s1.keys()) {
+        // for (let i of s1.keys()) {
         //     console.log(i);
         // }
-        
+
         //迭代器遍历值
         console.log(s1.values())
         let setValueIterator = s1.values()
         let value;
-        while((value = setValueIterator.next()).done != true){//next() 返回一个对象{value：any , done：boolean}
+        while ((value = setValueIterator.next()).done != true) { //next() 返回一个对象{value：any , done：boolean}
             console.log(value.value)
         }
         // for (let i of s1.values()) {
@@ -67,12 +70,12 @@
         console.log(s1.entries());
         let setEntriesIterator = s1.entries()
         let entries;
-        while((entries = setEntriesIterator.next()).done != true){//这里的next() 方法返回entries对象{value:[key, value], done:boolean}
+        while ((entries = setEntriesIterator.next()).done != true) { //这里的next() 方法返回entries对象{value:[key, value], done:boolean}
             let key = entries.value[0];
             let value = entries.value[1];
             console.log(key, value)
         }
-        // for (let i of s1.entries()) {//entries() 返回数组
+        // for (let i of s1.entries()) { //entries() 返回数组
         //     console.log(i);
         // }
 
@@ -80,7 +83,7 @@
             for of 取出的就是对象的value属性的值，
         */
 
-        for (let [index, item] of ["11","22","33"].entries()) {
+        for (let [index, item] of["11", "22", "33"].entries()) {
             console.log(index, item);
         }
 
@@ -97,28 +100,38 @@
         */
 
         s1.forEach((index, item) => {
-            console.log(index,item);
+            console.log(index, item);
         })
 
         //用来对一些数据去重
-        let arr = [1,2,2,"kerwin","kerwin",[1,2],[3,4],[1,2],{name:"kerwin"},{age:100},{name:"kerwin"}]
+        let arr = [1, 2, 2, "kerwin", "kerwin", [1, 2],
+            [3, 4],
+            [1, 2], {
+                name: "kerwin"
+            }, {
+                age: 100
+            }, {
+                name: "kerwin"
+            }
+        ]
         console.log(arr)
-        
-        function test(arr){
+
+        function test(arr) {
             let set = new Set()
-            //filter() 过滤函数，
+                //filter() 过滤函数，
             return arr.filter(item => {
-                
+
                 let id = JSON.stringify(item)
-                if(!set.has(id)){
+                if (!set.has(id)) {
                     set.add(id)
-                    return true//要当前的数据
-                }else{
-                    return false//不要当前的数据
+                    return true //要当前的数据
+                } else {
+                    return false //不要当前的数据
                 }
             })
         }
         console.log(test(arr));
     </script>
 </body>
+
 </html>
