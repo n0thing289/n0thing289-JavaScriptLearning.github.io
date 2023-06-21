@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            //第二种,加上static关键字es6新语法
+            static myname = "person类的名字"
+            static mymethod = function() {
+                console.log("静态方法mymethod", this.age); //这里的this指向是这个类而不是对象
+            }
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            say() {
+                console.log(this.name, this.age);
+            }
+        }
+
+        //直接通过类来挂属性和方法,就是静态方法和属性了
+        //1. 第一种旧方法
+        //  Person.myname = "person类的名字"
+        // Person.mymethod = function() {
+        //     console.log("静态方法mymethod");
+        // }
+
+        let obj = new Person("kerwin", 17);
+    </script>
+</body>
+
+</html>
